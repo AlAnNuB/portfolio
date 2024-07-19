@@ -58,24 +58,21 @@ export const Default = () => {
     [],
   );
 
-  console.log(
-    sections.map((item) => item.path === activePath).findIndex((item) => item),
-  );
-
   const pathIndex = sections
     .map((item) => item.path === activePath)
     .findIndex((item) => item);
+
   const listenScrollEvent = useCallback(
     (e: WheelEvent) => {
-      console.log(e.deltaY < 0 && pathIndex > sections.length);
-      if (e.deltaY > 0 && pathIndex < sections.length) {
-        console.log(sections[pathIndex + 1].path);
+      if (e.deltaY > 0 && pathIndex >= 0 && pathIndex < sections.length - 1) {
+        // scroll down
         navigate(sections[pathIndex + 1].path);
       }
-      if (e.deltaY < 0 && pathIndex > sections.length) {
-        console.log("up");
-        navigate(sections[pathIndex + 1].path);
+      if (e.deltaY < 0 && pathIndex > 0 && pathIndex < sections.length) {
+        //scroll up
+        navigate(sections[pathIndex - 1].path);
       }
+      return
     },
     [navigate, pathIndex, sections],
   );

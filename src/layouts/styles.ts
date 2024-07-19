@@ -26,10 +26,14 @@ export const LinkContent = styled.div<{ $isActive: boolean }>`
   }
 
   span {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    margin-left: 0.5rem;
+    transition: all 0.5s linear;
   }
 
-  & ::before {
+  &::before {
     content: " ";
     position: absolute;
     top: 0;
@@ -40,6 +44,14 @@ export const LinkContent = styled.div<{ $isActive: boolean }>`
     border-left: ${(props) => (props.$isActive ? "2px solid #f0f8ff" : "none")};
     background-color: ${({ theme }) => theme.color};
     transition: all 0.5s linear;
+  }
+
+  &:hover {
+    span {
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.5s linear;
+    }
   }
 `;
 
