@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
     --animate-duration: 1s;
     --animate-delay: 1s;
   }
+  
   * {
     margin: 0;
     padding: 0;

@@ -2,102 +2,87 @@ import {
   ProjectorScreenChart,
   IdentificationBadge,
   StackPlus,
-  IconProps,
   AddressBook,
-  House,
-} from "@phosphor-icons/react";
-import { Container, Content, LinkContent, Navigation } from "./styles";
-import { ComponentType, useCallback, useEffect, useMemo } from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-
-type SectionType = {
-  id: number;
-  title: string;
-  icon: ComponentType<IconProps>;
-  path: string;
-};
+  House
+} from '@phosphor-icons/react'
+import { Container, Content } from './styles'
+import { useCallback, useEffect, useMemo } from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Navbar } from '../components/navbar'
+import { SidebarButtonProps } from '../types/ISidebarButtonProps'
 
 export const Default = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const activePath = useLocation().pathname;
+  const activePath = useLocation().pathname
 
-  const sections: SectionType[] = useMemo(
+  const sections: SidebarButtonProps[] = useMemo(
     () => [
       {
         id: 1,
-        title: "Inicio",
+        title: 'Inicio',
         icon: House,
-        path: "/",
+        path: '/'
       },
       {
         id: 2,
-        title: "Sobre",
+        title: 'Sobre',
         icon: IdentificationBadge,
-        path: "/sobre",
+        path: '/sobre'
       },
       {
         id: 3,
-        title: "Tecnologias",
+        title: 'Tecnologias',
         icon: StackPlus,
-        path: "/technologies",
+        path: '/technologies'
       },
       {
         id: 4,
-        title: "Projetos",
+        title: 'Projetos',
         icon: ProjectorScreenChart,
-        path: "/projects",
+        path: '/projects'
       },
       {
         id: 5,
-        title: "Contato",
+        title: 'Contato',
         icon: AddressBook,
-        path: "/contact",
-      },
+        path: '/contact'
+      }
     ],
-    [],
-  );
+    []
+  )
 
   const pathIndex = sections
-    .map((item) => item.path === activePath)
-    .findIndex((item) => item);
+    .map(item => item.path === activePath)
+    .findIndex(item => item)
 
   const listenScrollEvent = useCallback(
     (e: WheelEvent) => {
       if (e.deltaY > 0 && pathIndex >= 0 && pathIndex < sections.length - 1) {
         // scroll down
-        navigate(sections[pathIndex + 1].path);
+        navigate(sections[pathIndex + 1].path)
       }
       if (e.deltaY < 0 && pathIndex > 0 && pathIndex < sections.length) {
         //scroll up
-        navigate(sections[pathIndex - 1].path);
+        navigate(sections[pathIndex - 1].path)
       }
       return
     },
-    [navigate, pathIndex, sections],
-  );
+    [navigate, pathIndex, sections]
+  )
 
   useEffect(() => {
-    window.addEventListener("wheel", listenScrollEvent);
+    window.addEventListener('wheel', listenScrollEvent)
 
-    return () => window.removeEventListener("wheel", listenScrollEvent);
-  }, [listenScrollEvent]);
+    return () => window.removeEventListener('wheel', listenScrollEvent)
+  }, [listenScrollEvent])
 
   return (
     <Container>
-      <Navigation>
-        {sections.map(({ id, icon: Icon, path, title }: SectionType) => (
-          <Link key={id} to={path}>
-            <LinkContent $isActive={activePath === path}>
-              <Icon />
-              <span>{title}</span>
-            </LinkContent>
-          </Link>
-        ))}
-      </Navigation>
+      <Navbar sections={sections} />
       <Content>
         <Outlet />
       </Content>
     </Container>
-  );
-};
+  )
+}
