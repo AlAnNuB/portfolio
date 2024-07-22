@@ -1,39 +1,20 @@
+import {
+  Container,
+  ImagePrograming,
+  Title,
+  TextContent,
+  Description
+} from './styles'
+import Programing from '../../assets/programming.svg'
+
 export const Home = () => {
   return (
-    <>
-      <h1>Home</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde
-        aspernatur repellendus, harum, incidunt recusandae quos perferendis
-        nobis neque cum voluptatem error vitae inventore, quis saepe beatae
-        praesentium officia! Sunt! Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt
-        recusandae quos perferendis nobis neque cum voluptatem error vitae
-        inventore, quis saepe beatae praesentium officia! Sunt! Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur
-        repellendus, harum, incidunt recusandae quos perferendis nobis neque cum
-        voluptatem error vitae inventore, quis saepe beatae praesentium officia!
-        Sunt!
-        {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores unde aspernatur repellendus, harum, incidunt recusandae quos perferendis nobis neque cum voluptatem error vitae inventore, quis saepe beatae praesentium officia! Sunt! */}
-      </p>
-    </>
+    <Container>
+      <TextContent>
+        <Title>Desenvolvedor Front-end</Title>
+        <Description>Estou aprendendo React</Description>
+      </TextContent>
+      <ImagePrograming src={Programing} alt="programing" width={'500'} />
+    </Container>
   )
 }

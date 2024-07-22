@@ -4,6 +4,7 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --animate-duration: 1s;
     --animate-delay: 1s;
+    --backgroundTextContent: #00000080;
   }
   
   * {

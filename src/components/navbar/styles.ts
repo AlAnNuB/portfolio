@@ -6,6 +6,10 @@ export const Navigation = styled.nav`
   align-items: flex-start;
   justify-content: center;
   padding: 1rem;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 export const LinkContent = styled.div<{ $isActive: boolean }>`
   position: relative;
@@ -32,7 +36,7 @@ export const LinkContent = styled.div<{ $isActive: boolean }>`
     width: 2px;
     height: 100%;
     border-radius: ${(props) => (props.$isActive ? "5px" : "0")};
-    border-left: ${(props) => (props.$isActive ? "2px solid #f0f8ff" : "none")};
+    border-left: ${({ theme, $isActive }) => ($isActive ? `2px solid ${theme.color}` : "none")};
     background-color: ${({ theme }) => theme.color};
     transition: all 0.5s linear;
   }
