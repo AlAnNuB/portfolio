@@ -1,9 +1,9 @@
 import { ThemeProvider, DefaultTheme } from 'styled-components'
-import { GlobalStyles } from './styles/globalStyles'
-import { darkTheme } from './styles/themes'
+import { GlobalStyles } from '@/styles/globalStyles'
+import { darkTheme } from '@/styles/themes'
 import { useState } from 'react'
 import { RouterProvider } from 'react-router-dom'
-import { routes } from './routes/routes'
+import { routes } from '@/routes/routes'
 
 function App() {
   const [theme] = useState<DefaultTheme>(darkTheme)

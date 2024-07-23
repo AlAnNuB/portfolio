@@ -5,7 +5,7 @@ import {
   TextContent,
   Description
 } from './styles'
-import Programing from '../../assets/programming.svg'
+import Programing from '@/assets/programming.svg'
 
 export const Home = () => {
   return (

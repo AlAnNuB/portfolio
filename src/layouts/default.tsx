@@ -8,8 +8,8 @@ import {
 import { Container, Content } from './styles'
 import { useCallback, useEffect, useMemo } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { Navbar } from '../components/navbar'
-import { SidebarButtonProps } from '../types/ISidebarButtonProps'
+import { Navbar } from '@/components/navbar'
+import { SidebarButtonProps } from '@/types/ISidebarButtonProps'
 
 export const Default = () => {
   const navigate = useNavigate()
