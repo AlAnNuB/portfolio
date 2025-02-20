@@ -1,3 +1,9 @@
+import { FramerMotionContainer } from "@/components/FramerMotionContainer";
+
 export const Projects = () => {
-  return <h1>projects</h1>;
+	return (
+		<FramerMotionContainer>
+			<h1>projects</h1>
+		</FramerMotionContainer>
+	);
 };

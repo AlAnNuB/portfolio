@@ -1,3 +1,15 @@
+import { FramerMotionContainer } from "@/components/FramerMotionContainer";
+import { Title } from "@/components/title";
+import { Content, TextContent } from "./styles";
+
 export const Contact = () => {
-  return <h1>contact</h1>;
+	return (
+		<FramerMotionContainer>
+			<Content>
+				<TextContent>
+					<Title text="Desenvolvedor Front-end" />
+				</TextContent>
+			</Content>
+		</FramerMotionContainer>
+	);
 };

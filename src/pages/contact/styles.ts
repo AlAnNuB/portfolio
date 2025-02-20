@@ -19,27 +19,8 @@ export const TextContent = styled.section`
   background-color: var(--backgroundTextContent);
   backdrop-filter: blur(4px);
   width: 50%;
-  transform: translateX(-20%);
 
   @media (max-width: 768px) {
     width: 90%;
-    transform: translateY(20%);
-  }
-`;
-
-export const Description = styled.p`
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
-  font-size: 1.1rem;
-  background: transparent;
-  text-align: center;
-`;
-
-export const ImageProgramming = styled.img`
-  width: clamp(15rem, 60%, 40rem);
-  position: absolute;
-  right: clamp(0rem, 20%, 5rem);
-
-  @media (max-width: 768px) {
-    transform: translateY(-50%);
   }
 `;

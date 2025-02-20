@@ -1,3 +1,4 @@
+import Sprinkle from "@/assets/Sprinkle.svg";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
@@ -13,7 +14,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     outline: 0;
     font-family: "Source Sans 3", sans-serif;
-    background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.color};
     -webkit-font-smoothing: antialiased;
   }
@@ -22,7 +22,11 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
-  /* body {
-    transition: all 0.50s linear;
-  } */
+  body {
+    background-color: ${({ theme }) => theme.background};
+    background-image: url(${Sprinkle});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
   `;
