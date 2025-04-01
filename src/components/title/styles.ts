@@ -27,10 +27,10 @@ const rubberBand = keyframes`
 export const Container = styled.h1`
   display: flex;
   user-select: none;
-  justify-content: center;
   flex-wrap: wrap;
-  font-size: clamp(1.5rem, 4vw, 4rem);
-  font-weight: 900;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
   background-color: transparent;
 `;
 
@@ -43,16 +43,13 @@ export const Phrases = styled.div`
   }
 `;
 
-export const Letter = styled.span`
+export const Letter = styled.span<{ $themeProp: "default" | "primary" }>`
   background-color: transparent;
-  color: ${({ theme }) => theme.color};
-
+  color: ${({ theme, $themeProp }) => ($themeProp === "default" ? theme.color : theme.primaryColor)};
   transition: all 0.3s ease-out;
 
   &:hover {
-    color: ${({ theme }) => theme.textColorHover};
-
-    animation: ${rubberBand};
-    animation-duration: 1s;
+    color: ${({ theme, $themeProp }) => ($themeProp === "default" ? theme.primaryColor : theme.color)};
+    animation: 1s linear ${rubberBand};
   }
 `;

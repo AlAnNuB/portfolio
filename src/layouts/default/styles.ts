@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Content = styled.main`
   display: flex;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  transition: all 0.5s linear;
-
-`;
-
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
   flex: 1;
-  overflow: hidden;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (max-width: 1200px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 5rem;
+  }
 `;

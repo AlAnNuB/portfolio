@@ -1,12 +1,7 @@
-import Sprinkle from "@/assets/Sprinkle.svg";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  :root {
-    --animate-duration: 1s;
-    --animate-delay: 1s;
-    --backgroundTextContent: #00000080;
-  }
+  :root {}
   
   * {
     margin: 0;
@@ -23,10 +18,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.background};
-    background-image: url(${Sprinkle});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+    overflow: hidden;
   }
   `;

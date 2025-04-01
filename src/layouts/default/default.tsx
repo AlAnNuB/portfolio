@@ -1,17 +1,18 @@
 import { Navbar } from "@/components/navbar";
+import { NavbarMobile } from "@/components/navbarMobile";
 import { SidebarButtonProps } from "@/types/ISidebarButtonProps";
 import {
 	AddressBook,
 	House,
 	IdentificationBadge,
-	ProjectorScreenChart,
+	// ProjectorScreenChart,
 	StackPlus,
 } from "@phosphor-icons/react";
 import { AnimatePresence } from "framer-motion";
 import { useCallback, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AnimatedOutlet } from "../animatedOutlet";
-import { Container, Content } from "./styles";
+import { Content } from "./styles";
 
 export const Default = () => {
 	const navigate = useNavigate();
@@ -34,16 +35,16 @@ export const Default = () => {
 			},
 			{
 				id: 3,
-				title: "Tecnologias",
+				title: "Habilidades",
 				icon: StackPlus,
 				path: "/technologies",
 			},
-			{
-				id: 4,
-				title: "Projetos",
-				icon: ProjectorScreenChart,
-				path: "/projects",
-			},
+			// {
+			// 	id: 4,
+			// 	title: "Projetos",
+			// 	icon: ProjectorScreenChart,
+			// 	path: "/projects",
+			// },
 			{
 				id: 5,
 				title: "Contato",
@@ -80,13 +81,14 @@ export const Default = () => {
 	}, [listenScrollEvent]);
 
 	return (
-		<Container>
+		<>
 			<Navbar sections={sections} />
+			<NavbarMobile sections={sections} />
 			<Content>
 				<AnimatePresence mode="wait" initial={true}>
 					<AnimatedOutlet />
 				</AnimatePresence>
 			</Content>
-		</Container>
+		</>
 	);
 };

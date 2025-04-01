@@ -1,40 +1,26 @@
 import { FramerMotionContainer } from "@/components/FramerMotionContainer";
+import { SubTitle } from "@/components/subTitle";
 import { Title } from "@/components/title";
-import {
-	Content,
-	Description,
-	TechnologiesContainer,
-	TextContent,
-} from "./styles";
-
-import { TechnologyCard } from "@/components/technologieCard";
 import { useEffect } from "react";
+import { Content, TechnologiesGrid } from "./styles";
+import { TechnologyCard } from "./technologieCard";
 import { technologies } from "./tecnologiesList";
 
 export const Technologies = () => {
 	useEffect(() => {
-		document.title = "Tecnologias - Alan Miranda";
-	});
+		document.title = "Habilidades - Alan Miranda";
+	}, []);
 
 	return (
 		<FramerMotionContainer>
 			<Content>
-				<TextContent>
-					<Title text="Tecnologias que trabalho" />
-					<Description>
-						Sou desenvolvedor front-end com experiência no ecossistema
-						JavaScript, especialmente com React e TypeScript. Utilizo também
-						styled-components e Storybook para criar interfaces de usuário
-						dinâmicas e bem estruturadas, e faço o versionamento do código com
-						Git. Além disso, tenho conhecimentos em Node.js, PostgreSQL e
-						experiência em deploy com Vercel, entre outras tecnologias.
-					</Description>
-				</TextContent>
-				<TechnologiesContainer>
+				<Title text="Habilidades" />
+				<SubTitle text="Veja minhas principais competências para transformar suas ideias em soluções" />
+				<TechnologiesGrid>
 					{technologies.map(({ name, icon }) => (
-						<TechnologyCard key={name} name={name} icon={icon} />
+						<TechnologyCard key={name} icon={icon} name={name} />
 					))}
-				</TechnologiesContainer>
+				</TechnologiesGrid>
 			</Content>
 		</FramerMotionContainer>
 	);

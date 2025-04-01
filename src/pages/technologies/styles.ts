@@ -6,42 +6,23 @@ export const Content = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-export const TextContent = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: var(--backgroundTextContent);
-  backdrop-filter: blur(4px);
-  width: 50%;
-
-  @media (max-width: 768px) {
-    width: 90%;
-  }
-`;
-
-export const Description = styled.p`
-  font-size: clamp(.5rem, 1.5vw, 1rem);
-  background: transparent;
-  text-align: center;
-`;
-
-export const TechnologiesContainer = styled.section`
-  display: flex;
-  width: 60%;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 1rem;
+  padding: 2rem 0;
   gap: 2rem;
+`;
+
+export const TechnologiesGrid = styled.div`
+  display: grid;
+  max-height: 90%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
   @media (max-width: 768px) {
-    width: 80%;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 `;

@@ -1,30 +1,84 @@
-# React + TypeScript + Vite
+# Portfólio Pessoal - Alan Miranda
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio Preview](/public/preview.png)
 
-Currently, two official plugins are available:
+Este é o meu portfólio pessoal desenvolvido com React, TypeScript e Styled Components. O projeto apresenta uma interface moderna e responsiva, com navegação suave e animações elegantes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled Components](https://styled-components.com/)
+- [React Router](https://reactrouter.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Phosphor Icons](https://phosphoricons.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## ✨ Funcionalidades
 
-- Configure the top-level `parserOptions` property like this:
+- Design responsivo com suporte a mobile
+- Navegação suave entre seções
+- Animações de transição
+- Menu mobile com painel lateral
+- Tema no momento apenas escuro
+- Navegação por scroll
+- Interface moderna e minimalista
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
+## 🛠️ Como Executar
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/AlAnNuB/portfolio
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Instale as dependências:
+```bash
+npm install
+# ou
+yarn install
+```
+
+3. Execute o projeto:
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
+4. Acesse `http://localhost:5173` no seu navegador
+
+## 📱 Responsividade
+
+O projeto é responsivo e se adapta a diferentes tamanhos de tela:
+
+- Desktop: Navegação horizontal com menu completo
+- Mobile: Menu hamburger com painel lateral deslizante
+
+## 🎨 Estrutura do Projeto
+
+```
+src/
+  ├── components/     # Componentes reutilizáveis
+  ├── layouts/       # Layouts da aplicação
+  ├── pages/         # Páginas/rotas
+  ├── styles/        # Estilos globais e temas
+  ├── types/         # Definições de tipos TypeScript
+  └── assets/         # imagens utilizadas
+```
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 🤝 Contribuições
+
+Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 📧 Contato
+
+- Email: alannub6@gmail.com
+- LinkedIn: [/in/alanmirandasilva](https://www.linkedin.com/in/alanmirandasilva/)
+- GitHub: [AlAnNuB](https://github.com/AlAnNuB)
+
+---
+
+Desenvolvido com ❤️ por Alan Miranda

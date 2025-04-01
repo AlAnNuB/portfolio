@@ -1,14 +1,9 @@
-import MyPhoto from "@/assets/myPhoto.png";
 import { FramerMotionContainer } from "@/components/FramerMotionContainer";
+import { LinkButton } from "@/components/LinkButton";
+import { SubTitle } from "@/components/subTitle";
 import { Title } from "@/components/title";
 import { useEffect } from "react";
-import {
-	Container,
-	Description,
-	ImageBox,
-	SubTitle,
-	TextContent,
-} from "./styles";
+import { Container, Description, DescriptionBox } from "./styles";
 
 export const About = () => {
 	useEffect(() => {
@@ -18,20 +13,30 @@ export const About = () => {
 	return (
 		<FramerMotionContainer>
 			<Container>
-				<TextContent>
-					<Title text="Olá sou Alan Miranda" />
-					<SubTitle>Desenvolvedor front-end com React</SubTitle>
+				<Title text="Quem sou eu" />
+				<SubTitle text="Desenvolvedor Full Stack" />
+				<DescriptionBox>
 					<Description>
-						Sou apaixonado por desenvolver interfaces dinâmicas e proporcionar
-						experiências imersivas aos usuários. Atuo atualmente no ecossistema
-						JavaScript, focado principalmente em React. Sou comprometido,
-						entusiasmado e sempre em busca de melhorias e inovações em cada
-						projeto que realizo.
+						Anteriormente, trabalhei no setor de restaurantes, mas sempre tive
+						um forte interesse pela tecnologia. Com a pandemia, surgiu a
+						oportunidade de participar do curso de Desenvolvedor Full Stack
+						Júnior da Recode, uma experiência enriquecedora que ampliou meus
+						conhecimentos em Java, Spring, JavaScript, React, Git, entre outros.
+						Além disso, o curso fortaleceu minhas habilidades em colaboração em
+						equipe, expressão de opiniões e gestão de conflitos.
 					</Description>
-				</TextContent>
-				<ImageBox>
-					<img src={MyPhoto} alt="Alan" />
-				</ImageBox>
+					<Description>
+						Essa transição de carreira me levou com sucesso ao Grupo GPS, onde
+						acumulo mais de 2 anos de experiência como desenvolvedor front-end.
+						Nessa função, tenho atualizado e desenvolvido novas funcionalidades
+						em React com TypeScript, além de estilizar interfaces com Styled
+						Components e Stitches, sempre seguindo rigorosamente os layouts
+						propostos pela equipe de design no Figma.
+					</Description>
+				</DescriptionBox>
+				<LinkButton href="/CV.pdf" target="_blank" rel="noopener noreferrer">
+					Baixar currículo
+				</LinkButton>
 			</Container>
 		</FramerMotionContainer>
 	);

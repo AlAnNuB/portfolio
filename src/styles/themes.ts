@@ -2,14 +2,18 @@ import { DefaultTheme } from "styled-components";
 
 export const lightTheme: DefaultTheme = {
 	fontFamily: "Source Sans 3, sans-serif",
-	background: "#f0f8ff",
+	color: "#ffffff",
 	backgroundTextContent: "#333333",
-	textColorHover: "#f4a949",
+	primaryColor: "#7FFF00",
+	backgroundSidebar: "rgba(33, 34, 39, 0.4)",
+	buttonPrimary: "#3B7A57",
 };
+
 export const darkTheme: DefaultTheme = {
 	fontFamily: "Source Sans 3, sans-serif",
-	background: "#141416",
-	color: "#f0f8ff",
+	color: "#ffffff",
 	backgroundTextContent: "#333333",
-	textColorHover: "#f4a949",
+	primaryColor: "#7FFF00",
+	backgroundSidebar: "rgba(33, 34, 39, 0.4)",
+	buttonPrimary: "#3B7A57",
 };

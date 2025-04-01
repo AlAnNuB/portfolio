@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { SidebarButtonProps } from "../../types/ISidebarButtonProps";
-import { LinkContent, Navigation, ScrollIndicator } from "./styles";
+import { LinkContent, Logo, NavLinks, Navigation } from "./styles";
 
 interface NavbarProps {
 	sections: SidebarButtonProps[];
@@ -11,16 +11,18 @@ export const Navbar = ({ sections }: NavbarProps) => {
 
 	return (
 		<Navigation>
-			{sections.map(({ id, icon: Icon, path, title }: SidebarButtonProps) => (
-				<Link key={id} to={path}>
-					<LinkContent $isActive={activePath === path}>
-						<Icon />
-						<span>{title}</span>
-					</LinkContent>
-				</Link>
-			))}
-
-			<ScrollIndicator />
+			<Link to="/">
+				<Logo>Alan Miranda</Logo>
+			</Link>
+			<NavLinks>
+				{sections.map(({ id, path, title }: SidebarButtonProps) => (
+					<Link key={id} to={path}>
+						<LinkContent $isActive={activePath === path}>
+							<span>{title}</span>
+						</LinkContent>
+					</Link>
+				))}
+			</NavLinks>
 		</Navigation>
 	);
 };

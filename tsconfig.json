@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -8,11 +7,5 @@
       ]
     }
   },
-  "extends": "./tsconfig.app.json",
-  "include": [
-    "src",
-    "src/**/*",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-  ]
+  "extends": "./tsconfig.app.json"
 }
