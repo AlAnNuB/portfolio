@@ -10,7 +10,6 @@ export const Content = styled.main`
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
-    gap: 2rem;
   }
 `;
 
@@ -21,6 +20,10 @@ export const TextContent = styled.section`
   align-items: flex-start;
   gap: 1rem;
   max-width: 600px;
+
+  @media (max-width: 768px) {
+    transform: translateY(-20%);
+  }
 `;
 
 export const Greeting = styled.h2`
@@ -51,10 +54,10 @@ export const ImageContainer = styled.div`
   align-items: center;
   max-width: 600px;
   transform: translateX(-25%);
+  aspect-ratio: 16/9;
 
   @media (max-width: 768px) {
     transform: translateX(0);
-    align-items: end;
     width: 60%;
   }
 `;
