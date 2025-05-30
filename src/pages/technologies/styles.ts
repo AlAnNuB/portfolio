@@ -10,6 +10,7 @@ export const Content = styled.main`
   gap: 2rem;
 
   @media (max-width: 768px) {
+    justify-content: flex-start;
     gap: .5rem;
     padding: 0;
   }
@@ -28,6 +29,6 @@ export const TechnologiesGrid = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: .5rem;
+    gap: .2rem;
   }
 `;

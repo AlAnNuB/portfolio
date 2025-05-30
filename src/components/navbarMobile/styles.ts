@@ -4,10 +4,6 @@ export const Navigation = styled.nav`
   display: none;
   height: 4rem;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
   background-color: ${({ theme }) => theme.backgroundSidebar};
   border-bottom: 1px solid #2E2F34;
   backdrop-filter: blur(10px);

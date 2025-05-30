@@ -4,11 +4,14 @@ export const Content = styled.main`
   display: flex;
   flex: 1;
   flex-direction: column;
-  align-items: center;
-  padding: 2rem 0;
   gap: 4rem;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    gap: 2rem;
+  }
 `;
 
 export const ContactGrid = styled.div`

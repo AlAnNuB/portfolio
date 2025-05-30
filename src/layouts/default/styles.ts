@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const Content = styled.main`
+export const Content = styled.div`
   display: flex;
   flex: 1;
-  padding: 2rem;
+  padding: 0 2rem;
   max-width: 1200px;
   margin: 0 auto;
   width: 100vw;

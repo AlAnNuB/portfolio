@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.main`
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 2rem 0;
   gap: 2rem;
 
   @media (max-width: 768px) {
     padding: 0rem 2rem;
+    justify-content: flex-start;
     gap: 1rem;
   }
 `;
@@ -31,6 +31,6 @@ export const DescriptionBox = styled.div`
   gap: 1rem;
 
   @media (max-width: 768px) {
-    gap: 0;
+    gap: 0.5rem;
   }
 `;

@@ -5,11 +5,11 @@ export const Content = styled.main`
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 0;
   position: relative;
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
+    transform: translateY(-10%);
   }
 `;
 
