@@ -1,7 +1,7 @@
 import { FramerMotionContainer } from "@/components/FramerMotionContainer";
 import { Title } from "@/components/title";
 import { Envelope, GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
-import { ElementType } from "react";
+import { ElementType, useEffect } from "react";
 import {
 	ContactGrid,
 	ContactItem,
@@ -20,6 +20,10 @@ type ContactInfoProps = {
 };
 
 export const Contact = () => {
+	useEffect(() => {
+		document.title = "Contato - Alan Miranda";
+	}, []);
+
 	const contactInfo: ContactInfoProps[] = [
 		{
 			icon: LinkedinLogo,
