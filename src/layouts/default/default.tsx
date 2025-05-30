@@ -9,7 +9,7 @@ import {
 	StackPlus,
 } from "@phosphor-icons/react";
 import { AnimatePresence } from "framer-motion";
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AnimatedOutlet } from "../animatedOutlet";
 import { Content } from "./styles";
@@ -18,6 +18,7 @@ export const Default = () => {
 	const navigate = useNavigate();
 
 	const activePath = useLocation().pathname;
+	const toutchStartY = useRef<number | null>(null);
 
 	const sections: SidebarButtonProps[] = useMemo(
 		() => [
@@ -74,11 +75,44 @@ export const Default = () => {
 		[navigate, pathIndex, sections],
 	);
 
+	const listenTouchStartEvent = useCallback((e: TouchEvent) => {
+		toutchStartY.current = e.touches[0].clientY;
+	}, []);
+
+	const listTouchEndEvent = useCallback((e: TouchEvent) => {
+		if (toutchStartY.current === null) return;
+
+		const endY = e.changedTouches[0].clientY;
+		const deltaY = toutchStartY.current - endY;
+
+		const swipeThreshold = 50;
+		if (deltaY > swipeThreshold && pathIndex >= 0 && pathIndex < sections.length - 1) {
+			// Arrastou para cima
+			navigate(sections[pathIndex + 1].path);
+		} else if (deltaY < -swipeThreshold && pathIndex > 0 && pathIndex < sections.length) {
+			// Arrastou para baixo
+			navigate(sections[pathIndex - 1].path);
+		}
+
+		toutchStartY.current = null;
+	}, [navigate, pathIndex, sections]);
+
 	useEffect(() => {
 		window.addEventListener("wheel", listenScrollEvent);
+		window.addEventListener('touchstart', listenTouchStartEvent);
+		window.addEventListener('touchend', listTouchEndEvent);
 
-		return () => window.removeEventListener("wheel", listenScrollEvent);
-	}, [listenScrollEvent]);
+		return () => {
+			window.removeEventListener("wheel", listenScrollEvent)
+			window.removeEventListener("touchstart", listenTouchStartEvent)
+			window.removeEventListener("touchend", listTouchEndEvent)
+		};
+	}, [
+		listenScrollEvent,
+		listenTouchStartEvent,
+		listTouchEndEvent
+	]);
+
 
 	return (
 		<>
