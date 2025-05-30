@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+    background: ${({ theme }) => theme.bodyBackground};
     overflow: hidden;
   }
   `;
