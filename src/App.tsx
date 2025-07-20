@@ -1,15 +1,14 @@
 import { routes } from "@/routes/routes";
 import { GlobalStyles } from "@/styles/globalStyles";
-import { darkTheme } from "@/styles/themes";
-import { useState } from "react";
+import { ThemeProvider } from "styled-components";
 import { RouterProvider } from "react-router-dom";
-import { DefaultTheme, ThemeProvider } from "styled-components";
+import { useStorageTheme } from "./hooks/useStorageTheme";
 
 function App() {
-	const [theme] = useState<DefaultTheme>(darkTheme);
+	const { getTheme } = useStorageTheme();
 
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={getTheme}>
 			<RouterProvider router={routes} />
 			<GlobalStyles />
 		</ThemeProvider>
