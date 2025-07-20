@@ -1,18 +1,13 @@
 import { routes } from "@/routes/routes";
 import { GlobalStyles } from "@/styles/globalStyles";
-import { ThemeProvider } from "styled-components";
 import { RouterProvider } from "react-router-dom";
-import { useStorageTheme } from "./hooks/useStorageTheme";
+import { ThemeProviderContext } from "./context/themeContext";
 
-function App() {
-	const { getTheme } = useStorageTheme();
-
+export default function App() {
 	return (
-		<ThemeProvider theme={getTheme}>
+		<ThemeProviderContext>
 			<RouterProvider router={routes} />
 			<GlobalStyles />
-		</ThemeProvider>
+		</ThemeProviderContext>
 	);
 }
-
-export default App;

@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { SidebarButtonProps } from "../../types/ISidebarButtonProps";
 import { LinkContent, Logo, NavLinks, Navigation } from "./styles";
+import { SunIcon, MoonIcon } from "@phosphor-icons/react";
+import { useThemeContext } from "@/context/themeContext";
 
 interface NavbarProps {
 	sections: SidebarButtonProps[];
@@ -8,6 +10,11 @@ interface NavbarProps {
 
 export const Navbar = ({ sections }: NavbarProps) => {
 	const activePath = useLocation().pathname;
+	const { toggleTheme, currentTheme } = useThemeContext();
+
+	const handleToggleTheme = () => {
+		toggleTheme();
+	};
 
 	return (
 		<Navigation>
@@ -22,6 +29,9 @@ export const Navbar = ({ sections }: NavbarProps) => {
 						</LinkContent>
 					</Link>
 				))}
+				<LinkContent $isActive={false} onClick={handleToggleTheme}>
+					{currentTheme === "darkTheme" ? <SunIcon /> : <MoonIcon />}
+				</LinkContent>
 			</NavLinks>
 		</Navigation>
 	);

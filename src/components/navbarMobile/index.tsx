@@ -1,4 +1,4 @@
-import { List, X } from "@phosphor-icons/react";
+import { ListIcon, MoonIcon, SunIcon, XIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { SidebarButtonProps } from "../../types/ISidebarButtonProps";
@@ -11,6 +11,7 @@ import {
 	NavLinks,
 	Navigation,
 } from "./styles";
+import { useThemeContext } from "@/context/themeContext";
 
 interface NavbarMobileProps {
 	sections: SidebarButtonProps[];
@@ -19,6 +20,11 @@ interface NavbarMobileProps {
 export const NavbarMobile = ({ sections }: NavbarMobileProps) => {
 	const activePath = useLocation().pathname;
 	const [isOpen, setIsOpen] = useState(false);
+	const { toggleTheme, currentTheme } = useThemeContext();
+
+	const handleToggleTheme = () => {
+		toggleTheme();
+	};
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
@@ -32,9 +38,9 @@ export const NavbarMobile = ({ sections }: NavbarMobileProps) => {
 				</Link>
 				<MenuButton onClick={toggleMenu}>
 					{isOpen ? (
-						<X size={24} weight="bold" />
+						<XIcon size={24} weight="bold" />
 					) : (
-						<List size={24} weight="bold" />
+						<ListIcon size={24} weight="bold" />
 					)}
 				</MenuButton>
 			</Navigation>
@@ -43,7 +49,7 @@ export const NavbarMobile = ({ sections }: NavbarMobileProps) => {
 				<Navigation>
 					<Logo>Alan Miranda</Logo>
 					<CloseButton onClick={toggleMenu}>
-						<X size={24} weight="bold" />
+						<XIcon size={24} weight="bold" />
 					</CloseButton>
 				</Navigation>
 				<NavLinks>
@@ -54,6 +60,9 @@ export const NavbarMobile = ({ sections }: NavbarMobileProps) => {
 							</LinkContent>
 						</Link>
 					))}
+					<LinkContent $isActive={false} onClick={handleToggleTheme}>
+						{currentTheme === "darkTheme" ? <SunIcon /> : <MoonIcon />}
+					</LinkContent>
 				</NavLinks>
 			</MenuPanel>
 		</>

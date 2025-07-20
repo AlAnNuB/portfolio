@@ -44,7 +44,7 @@ export const MenuPanel = styled.div<{ $isOpen: boolean }>`
   right: ${({ $isOpen }) => ($isOpen ? "0" : "-100%")};
   width: 80%;
   max-width: 300px;
-  height: 100vh;
+  height: 100%;
   background-color: ${({ theme }) => theme.backgroundSidebar};
   border-left: 1px solid ${({ theme }) => theme.borderSidebar};
   backdrop-filter: blur(20px);
@@ -61,10 +61,9 @@ export const NavLinks = styled.div`
 `;
 
 export const LinkContent = styled.div<{ $isActive: boolean }>`
-  position: relative;
   padding: 0.5rem;
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   font-size: 1rem;
   color: ${({ theme, $isActive }) => ($isActive ? theme.primaryColor : theme.color)};
