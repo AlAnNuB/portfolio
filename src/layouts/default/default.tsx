@@ -2,7 +2,7 @@ import { Navbar } from "@/components/navbar";
 import { NavbarMobile } from "@/components/navbarMobile";
 import { SidebarButtonProps } from "@/types/ISidebarButtonProps";
 import {
-	AddressBook,
+	AddressBookIcon,
 	House,
 	IdentificationBadge,
 	// ProjectorScreenChart,
@@ -10,7 +10,7 @@ import {
 } from "@phosphor-icons/react";
 import { AnimatePresence } from "framer-motion";
 import { AnimatedOutlet } from "../animatedOutlet";
-import { Content } from "./styles";
+import { Content, GreenBall } from "./styles";
 import { useScrollChangePage } from "@/hooks/useScrollChangePage";
 
 export const Default = () => {
@@ -44,7 +44,7 @@ export const Default = () => {
 		{
 			id: 5,
 			title: "Contato",
-			icon: AddressBook,
+			icon: AddressBookIcon,
 			path: "/contact",
 		},
 	];
@@ -56,6 +56,7 @@ export const Default = () => {
 			<Navbar sections={sections} />
 			<NavbarMobile sections={sections} />
 			<Content>
+				<GreenBall />
 				<AnimatePresence mode="wait" initial={true}>
 					<AnimatedOutlet />
 				</AnimatePresence>
