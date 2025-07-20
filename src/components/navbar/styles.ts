@@ -34,16 +34,14 @@ export const Logo = styled.h1`
 
 export const NavLinks = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: .5rem;
   align-items: center;
 `;
 
 export const LinkContent = styled.div<{ $isActive: boolean }>`
-  position: relative;
   padding: 0.5rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   font-size: 1.125rem;
   color: ${({ theme, $isActive }) => ($isActive ? theme.primaryColor : theme.color)};
   transition: all 0.3s ease;
