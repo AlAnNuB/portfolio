@@ -4,12 +4,12 @@ export const Content = styled.div`
   display: flex;
   flex: 1;
   padding: 0 2rem;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
 
-  @media (max-width: 1200px) {
+  @media (max-width: var(--max-width)) {
     padding: 1rem;
   }
 `;

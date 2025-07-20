@@ -1,6 +1,6 @@
 import { FramerMotionContainer } from "@/components/FramerMotionContainer";
 import { Title } from "@/components/title";
-import { Envelope, GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
+import { EnvelopeIcon, GithubLogoIcon, LinkedinLogo } from "@phosphor-icons/react";
 import { ElementType, useEffect } from "react";
 import {
 	ContactGrid,
@@ -33,13 +33,13 @@ export const Contact = () => {
 			target: "_blank",
 		},
 		{
-			icon: Envelope,
+			icon: EnvelopeIcon,
 			label: "E-mail",
-			value: "alannub6@gmail.com",
-			href: "mailto:alannub6@gmail.com",
+			value: "alan@alannub.com.br",
+			href: "mailto:alan@alannub.com.br",
 		},
 		{
-			icon: GithubLogo,
+			icon: GithubLogoIcon,
 			label: "GitHub",
 			value: "@AlAnNuB",
 			href: "https://github.com/AlAnNuB",

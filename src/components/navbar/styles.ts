@@ -4,7 +4,7 @@ export const Navigation = styled.nav`
   display: flex;
   height: 4rem;
 
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   margin-top: 2rem;
 
@@ -12,11 +12,11 @@ export const Navigation = styled.nav`
   justify-content: space-between;
   padding: 0 2rem;
   background-color: ${({ theme }) => theme.backgroundSidebar};
-  border: 1px solid #2E2F34;
+  border: 1px solid ${({ theme }) => theme.borderSidebar};
   backdrop-filter: blur(10px);
   border-radius: 50px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: var(--max-width)) {
     margin: 1rem 1rem 0 1rem;
   }
 
@@ -28,7 +28,7 @@ export const Navigation = styled.nav`
 
 export const Logo = styled.h1`
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
   color: ${({ theme }) => theme.color};
 `;
 
@@ -44,32 +44,19 @@ export const LinkContent = styled.div<{ $isActive: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: ${({ theme, $isActive }) => ($isActive ? theme.primaryColor : theme.color)};
   transition: all 0.3s ease;
-  font-weight: 400;
+  font-weight: var(--font-semibold);
 
   span {
     visibility: visible;
     opacity: 1;
+    color: inherit;
   }
 
   &:hover {
     color: ${({ theme }) => theme.primaryColor};
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: ${({ theme, $isActive }) => ($isActive ? theme.primaryColor : "transparent")};
-    transition: all 0.3s ease;
-  }
-
-  &:hover::after {
-    background-color: ${({ theme }) => theme.primaryColor};
-  }
 `;

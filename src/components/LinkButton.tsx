@@ -9,7 +9,7 @@ export const LinkButton = styled.a`
   color: ${({ theme }) => theme.color};
   border-radius: 2rem;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
   transition: all 0.3s ease;
   margin-top: 1rem;
 
@@ -20,7 +20,7 @@ export const LinkButton = styled.a`
 `;
 
 export interface LinkButtonProps extends ComponentProps<typeof LinkButton> {
-	as?: ElementType;
+  as?: ElementType;
 }
 
 LinkButton.displayName = "LinkButton";

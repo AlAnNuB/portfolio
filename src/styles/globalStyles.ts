@@ -1,7 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  :root {}
+  :root {
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-regular: 400;
+    --max-width: 1200px;
+  }
   
   * {
     margin: 0;

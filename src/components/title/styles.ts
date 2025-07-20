@@ -29,7 +29,7 @@ export const Container = styled.h1`
   user-select: none;
   flex-wrap: wrap;
   font-size: clamp(2.5rem, 4vw, 4rem);
-  font-weight: 700;
+  font-weight: var(--font-bold);
   line-height: 1;
   background-color: transparent;
 `;

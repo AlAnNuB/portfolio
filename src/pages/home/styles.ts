@@ -29,7 +29,7 @@ export const TextContent = styled.section`
 export const Greeting = styled.h2`
   color: ${({ theme }) => theme.color};
   font-size: clamp(1.5rem, 1vw, 2rem);
-  font-weight: 400;
+  font-weight: var(font-regular);
 
   span {
     color: ${({ theme }) => theme.primaryColor};
@@ -43,7 +43,7 @@ export const TitleContainer = styled.div`
 
 export const SubTitle = styled.h2`
   font-size: clamp(1rem, 1.5vw, 1.5rem);
-  font-weight: 400;
+  font-weight: var(font-regular);
   color: ${({ theme }) => theme.color};
 `;
 

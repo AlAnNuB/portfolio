@@ -10,6 +10,7 @@ export const Container = styled.figure`
   border: 1px solid ${({ theme }) => theme.primaryColor};
   border-radius: 0.5rem;
   transition: all 0.3s ease;
+  background-color: ${({ theme })  => theme.backgroundCardAbility};
 
   img {
     width: 2.5rem;
@@ -18,14 +19,14 @@ export const Container = styled.figure`
 
   figcaption: {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: var(--font-semibold);
     color: ${({ theme }) => theme.color};
     text-align: center;
   }
 
   &:hover {
     transform: translateY(-5px);
-    border-color: ${({ theme }) => theme.textColorHover};
+    border-color: ${({ theme }) => theme.primaryColor};
     box-shadow: 0 0 20px ${({ theme }) => theme.primaryColor};
   }
 

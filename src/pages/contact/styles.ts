@@ -19,7 +19,7 @@ export const ContactGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--max-width);
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -54,14 +54,14 @@ export const IconWrapper = styled.div`
 
   &:hover {
     transform: translateY(-5px);
-    border-color: ${({ theme }) => theme.textColorHover};
+    border-color: ${({ theme }) => theme.primaryColor};
     box-shadow: 0 0 20px ${({ theme }) => theme.primaryColor};
   }
 `;
 
 export const Label = styled.h3`
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: var(--font-semibold);
   color: ${({ theme }) => theme.color};
 `;
 
