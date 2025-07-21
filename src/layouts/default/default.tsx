@@ -3,10 +3,10 @@ import { NavbarMobile } from "@/components/navbarMobile";
 import { SidebarButtonProps } from "@/types/ISidebarButtonProps";
 import {
 	AddressBookIcon,
-	House,
-	IdentificationBadge,
+	HouseIcon,
+	IdentificationBadgeIcon,
 	// ProjectorScreenChart,
-	StackPlus,
+	StackPlusIcon,
 } from "@phosphor-icons/react";
 import { AnimatePresence } from "framer-motion";
 import { AnimatedOutlet } from "../animatedOutlet";
@@ -20,19 +20,19 @@ export const Default = () => {
 		{
 			id: 1,
 			title: "Inicio",
-			icon: House,
+			icon: HouseIcon,
 			path: "/",
 		},
 		{
 			id: 2,
 			title: "Sobre",
-			icon: IdentificationBadge,
+			icon: IdentificationBadgeIcon,
 			path: "/sobre",
 		},
 		{
 			id: 3,
 			title: "Habilidades",
-			icon: StackPlus,
+			icon: StackPlusIcon,
 			path: "/technologies",
 		},
 		// {

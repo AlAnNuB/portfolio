@@ -1,6 +1,6 @@
 import { FramerMotionContainer } from "@/components/FramerMotionContainer";
 import { Title } from "@/components/title";
-import { EnvelopeIcon, GithubLogoIcon, LinkedinLogo } from "@phosphor-icons/react";
+import { EnvelopeIcon, GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 import { ElementType, useEffect } from "react";
 import {
 	ContactGrid,
@@ -26,7 +26,7 @@ export const Contact = () => {
 
 	const contactInfo: ContactInfoProps[] = [
 		{
-			icon: LinkedinLogo,
+			icon: LinkedinLogoIcon,
 			label: "Linkedin",
 			value: "Alan Miranda",
 			href: "https://www.linkedin.com/in/alanmirandasilva/",
