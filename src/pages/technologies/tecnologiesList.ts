@@ -14,23 +14,23 @@ import typescriptImage from "@/assets/technologies/typescript.svg";
 import vercelImage from "@/assets/technologies/vercel.svg";
 
 export interface ITechnologyProps {
-	name: string;
-	icon: string;
+  name: string;
+  icon: string;
 }
 
 export const technologies: ITechnologyProps[] = [
-	{ name: "JavaScript", icon: javaScriptImage },
-	{ name: "TypeScript", icon: typescriptImage },
-	{ name: "React", icon: reactImage },
-	{ name: "Styled Components", icon: styledComponentsImage },
-	{ name: "Stitches", icon: stitchesImage },
-	{ name: "HTML", icon: htmlImage },
-	{ name: "CSS", icon: cssImage },
-	{ name: "Next", icon: nextImage },
-	{ name: "Node", icon: nodeImage },
-	{ name: "Docker", icon: dockerImage },
-	{ name: "PostgreSQL", icon: postgreSqlImage },
-	{ name: "Git", icon: gitImage },
-	{ name: "GitHub", icon: gitHubImage },
-	{ name: "Vercel", icon: vercelImage },
+  { name: "JavaScript", icon: javaScriptImage },
+  { name: "TypeScript", icon: typescriptImage },
+  { name: "React", icon: reactImage },
+  { name: "Styled Components", icon: styledComponentsImage },
+  { name: "Stitches", icon: stitchesImage },
+  { name: "HTML", icon: htmlImage },
+  { name: "CSS", icon: cssImage },
+  { name: "Next", icon: nextImage },
+  { name: "Node", icon: nodeImage },
+  { name: "Docker", icon: dockerImage },
+  { name: "PostgreSQL", icon: postgreSqlImage },
+  { name: "Git", icon: gitImage },
+  { name: "GitHub", icon: gitHubImage },
+  { name: "Vercel", icon: vercelImage },
 ];

@@ -5,34 +5,34 @@ import { SunIcon, MoonIcon } from "@phosphor-icons/react";
 import { useThemeContext } from "@/context/themeContext";
 
 interface NavbarProps {
-	sections: SidebarButtonProps[];
+  sections: SidebarButtonProps[];
 }
 
 export const Navbar = ({ sections }: NavbarProps) => {
-	const activePath = useLocation().pathname;
-	const { toggleTheme, currentTheme } = useThemeContext();
+  const activePath = useLocation().pathname;
+  const { toggleTheme, currentTheme } = useThemeContext();
 
-	const handleToggleTheme = () => {
-		toggleTheme();
-	};
+  const handleToggleTheme = () => {
+    toggleTheme();
+  };
 
-	return (
-		<Navigation>
-			<Link to="/">
-				<Logo>Alan Miranda</Logo>
-			</Link>
-			<NavLinks>
-				{sections.map(({ id, path, title }: SidebarButtonProps) => (
-					<Link key={id} to={path}>
-						<LinkContent $isActive={activePath === path}>
-							<span>{title}</span>
-						</LinkContent>
-					</Link>
-				))}
-				<LinkContent $isActive={false} onClick={handleToggleTheme}>
-					{currentTheme === "darkTheme" ? <SunIcon /> : <MoonIcon />}
-				</LinkContent>
-			</NavLinks>
-		</Navigation>
-	);
+  return (
+    <Navigation>
+      <Link to="/">
+        <Logo>Alan Miranda</Logo>
+      </Link>
+      <NavLinks>
+        {sections.map(({ id, path, title }: SidebarButtonProps) => (
+          <Link key={id} to={path}>
+            <LinkContent $isActive={activePath === path}>
+              <span>{title}</span>
+            </LinkContent>
+          </Link>
+        ))}
+        <LinkContent $isActive={false} onClick={handleToggleTheme}>
+          {currentTheme === "darkTheme" ? <SunIcon /> : <MoonIcon />}
+        </LinkContent>
+      </NavLinks>
+    </Navigation>
+  );
 };

@@ -10,7 +10,7 @@ export const Container = styled.figure`
   border: 1px solid ${({ theme }) => theme.primaryColor};
   border-radius: 0.5rem;
   transition: all 0.3s ease;
-  background-color: ${({ theme })  => theme.backgroundCardAbility};
+  background-color: ${({ theme }) => theme.backgroundCardAbility};
 
   img {
     width: 2.5rem;
