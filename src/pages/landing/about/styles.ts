@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Hexagon } from "@/components/hexagon";
 
 export const Section = styled.section`
   background: ${({ theme }) => theme.black};
@@ -11,11 +12,13 @@ export const Section = styled.section`
 
 export const Inner = styled.div`
   max-width: var(--max-width);
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
+  overflow: hidden;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
@@ -51,8 +54,8 @@ export const Hive = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 520px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 520px;
 `;
 
 export const Row = styled.div<{ $offset: boolean }>`
@@ -115,8 +118,8 @@ export const TechnologyItem = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 84px;
-    height: 94px;
+    width: min(104px, calc(20vw - 6.4px));
+    height: min(117px, calc(22.4vw - 7.168px));
 
     & > span {
       font-size: 10px;
@@ -128,6 +131,13 @@ export const TechnologyItem = styled.div`
     & > span {
       transition: none;
     }
+  }
+`;
+
+export const TechnologyHexagon = styled(Hexagon)`
+  @media (max-width: 768px) {
+    width: min(104px, calc(20vw - 6.4px));
+    height: min(117px, calc(22.4vw - 7.168px));
   }
 `;
 

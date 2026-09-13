@@ -1,5 +1,4 @@
 import { Button } from "@/components/button";
-import { Hexagon } from "@/components/hexagon";
 import { SectionHeader } from "@/components/sectionHeader";
 import { aboutParagraphs, profile } from "@/data/content";
 import { technologies } from "@/data/technologies";
@@ -12,6 +11,7 @@ import {
   Lead,
   Row,
   Section,
+  TechnologyHexagon,
   TechnologyItem,
   TextColumn,
   Tooltip,
@@ -57,13 +57,13 @@ export const AboutSection = () => {
                   tabIndex={0}
                   aria-label={tech.name}
                 >
-                  <Hexagon
+                  <TechnologyHexagon
                     size={104}
                     tone={index % 2 === 0 ? "yellow" : "white"}
                   >
                     <Icon src={tech.icon} alt="" />
                     <Caption>{tech.name}</Caption>
-                  </Hexagon>
+                  </TechnologyHexagon>
                   <Tooltip role="tooltip">{tech.name}</Tooltip>
                 </TechnologyItem>
               ))}

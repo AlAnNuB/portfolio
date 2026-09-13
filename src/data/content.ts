@@ -15,7 +15,7 @@ export const profile = {
 };
 
 export const aboutParagraphs = [
-  "Desenvolvedor Full Stack Pleno com 3 anos de experiência em desenvolvimento web e arquiteturas modernas, especializado em ecossistema JavaScript / TypeScript (React e Node.js) e com atuação em ecossistema Java (Spring Boot). Atualmente, atuo focando no desenvolvimento e evolução de arquiteturas de Micro Frontends (Module Federation). Tenho expertise em construir aplicações modulares, performáticas e de alta escalabilidade utilizando React, TypeScript, Vite, Webpack, Styled Components, Next.js e Sass. Possuo forte atuação na criação, manutenção e documentação de Design Systems no Storybook, garantindo reuso de componentes e padronização visual em múltiplos produtos. No Back-End, construo APIs RESTful e microsserviços robustos utilizando Node.js (Express, Fastify e Nest) e Java com Spring Boot. Experiência na integração e modelagem de bancos de dados relacionais com PostgreSQL, utilizando ORMs como Prisma e TypeORM, além de domínio em SQL e arquitetura de dados. Experiência prática em ambientes Cloud e DevOps utilizando Docker para conteinerização, Azure DevOps, pipelines de CI/CD (GitLab/GitHub Actions), automação de builds e ambiente Linux. Aplico rigorosamente boas práticas de Engenharia de Software como SOLID, Clean Code, Clean Architecture, Padrões de Projeto (Design Patterns) e Testes Automatizados (Vitest, Jest e Playwright).",
+  "Desenvolvedor Full Stack Pleno com 3 anos de experiência em desenvolvimento web, especializado em JavaScript/TypeScript (React e Node.js) e experiência com Java/Spring Boot. Atuo com arquiteturas de Micro Frontends utilizando Module Federation, desenvolvendo aplicações modulares, performáticas e escaláveis com React, Vite, Webpack, Next.js e Styled Components. Experiência em Design Systems com Storybook, APIs RESTful, microsserviços, PostgreSQL, Prisma e TypeORM. Também atuo com Docker, CI/CD, Azure DevOps e Linux. Aplico SOLID, Clean Code, Clean Architecture, Design Patterns e testes automatizados com Vitest, Jest e Playwright.",
 ];
 
 export const navItems = [
@@ -75,19 +75,19 @@ export const experiences = [
   },
   {
     kind: "Educação",
+    title: "Análise e Desenvolvimento de Sistemas",
+    place: "Estácio de Sá",
+    period: "2022 — 2025 · Cotia, SP",
+    description:
+      "Graduação técnologica em Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento web, arquitetura de software e metodologias ágeis.",
+  },
+  {
+    kind: "Educação",
     title: "Desenvolvedor Full Stack Júnior",
     place: "Recode Pro",
     period: "2021 — 2022 · 540 horas",
     description:
       "Formação full stack com HTML, CSS, JavaScript, React, Java, Spring Boot, bancos de dados, Git, métodos ágeis e fundamentos de cloud, testes e segurança.",
-  },
-  {
-    kind: "Educação",
-    title: "Formação em Inteligência Artificial",
-    place: "Branas.io",
-    period: "30 horas",
-    description:
-      "LLMs, agentes, engenharia de contexto, MCP, RAG e automações — IA aplicada ao processo de desenvolvimento, não só como ferramenta pontual.",
   },
 ];
 

@@ -14,6 +14,8 @@ export const Shell = styled.footer`
   padding: 8px 32px 28px;
 
   @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     padding: 8px 16px 24px;
   }
 `;
@@ -42,6 +44,11 @@ export const ThankButton = styled.button`
   &:active {
     transform: scale(0.96);
   }
+
+  @media (max-width: 420px) {
+    padding-inline: 12px;
+    font-size: 10px;
+  }
 `;
 
 export const Copy = styled.p`
@@ -52,6 +59,11 @@ export const Copy = styled.p`
 export const Icons = styled.div`
   display: flex;
   gap: 4px;
+
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
 `;
 
 export const IconLink = styled.a`

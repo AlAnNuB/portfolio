@@ -16,25 +16,42 @@ export const Inner = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `;
 
 export const Card = styled.article`
-  min-height: 220px;
-  padding: 32px 28px;
+  padding: 28px;
   border-radius: ${({ theme }) => theme.radiusSm};
   background:
-    linear-gradient(180deg, rgba(36, 34, 45, 0.55) 0%, rgba(36, 34, 45, 0.92) 100%),
+    linear-gradient(
+      180deg,
+      rgba(36, 34, 45, 0.55) 0%,
+      rgba(36, 34, 45, 0.92) 100%
+    ),
     ${({ theme }) => theme.black};
   color: ${({ theme }) => theme.white};
   display: flex;
   flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    padding: 24px 20px;
+  }
+`;
+
+export const Entry = styled.div`
+  display: flex;
+  flex-direction: column;
   gap: 8px;
+
+  & + & {
+    padding-top: 20px;
+    border-top: 1px solid rgba(250, 250, 250, 0.14);
+  }
 
   p {
     margin-top: 8px;
@@ -50,6 +67,7 @@ export const Kind = styled.span`
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.yellow};
+  padding-bottom: 4px;
 `;
 
 export const Title = styled.h3`
