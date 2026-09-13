@@ -7,6 +7,7 @@ export const theme: DefaultTheme = {
   purple: "#584B8C",
   color: "#24222D",
   primaryColor: "#FCDB74",
+  selectionColor: "#bea34c",
   radiusXs: "6px",
   radiusSm: "16px",
   radiusMd: "100px",

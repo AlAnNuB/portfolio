@@ -57,7 +57,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ::selection {
-    background: ${({ theme }) => theme.yellow};
+    background: ${({ theme }) => theme.selectionColor};
     color: ${({ theme }) => theme.black};
   }
 `;

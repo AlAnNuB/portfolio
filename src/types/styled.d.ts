@@ -8,6 +8,7 @@ declare module "styled-components" {
     purple: string;
     color: string;
     primaryColor: string;
+    selectionColor: string;
     radiusXs: string;
     radiusSm: string;
     radiusMd: string;
