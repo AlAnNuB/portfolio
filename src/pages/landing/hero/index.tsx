@@ -1,7 +1,7 @@
+import portrait from "@/assets/comprimido.svg";
 import { Button } from "@/components/button";
 import { HoneycombAvatar } from "@/components/honeycombAvatar";
 import { profile } from "@/data/content";
-import portrait from "../../../../.ai/comprimido.svg";
 import {
   Cluster,
   Intro,
