@@ -55,7 +55,6 @@ export const Hive = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 520px;
 `;
 
 export const Row = styled.div<{ $offset: boolean }>`

@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Bar = styled.header`
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 20;
   height: var(--header-height);
   width: 100%;
-  background: transparent;
+  background: ${({ theme }) => theme.yellow};
+  box-shadow: 0 1px 0 rgba(36, 34, 45, 0.12);
 `;
 
 export const Shell = styled.div`
@@ -25,7 +26,7 @@ export const Shell = styled.div`
 `;
 
 export const Brand = styled.div`
-  min-height: 44px;
+  height: 30px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -119,7 +120,7 @@ export const IconLink = styled.a`
 `;
 
 export const MenuButton = styled.button`
-  display: grid;
+  display: none;
   width: 20px;
   height: 20px;
   border: 0;
@@ -127,6 +128,10 @@ export const MenuButton = styled.button`
   color: ${({ theme }) => theme.white};
   cursor: pointer;
   place-items: center;
+
+  @media (max-width: 900px) {
+    display: grid;
+  }
 `;
 
 export const Overlay = styled.button<{ $open: boolean }>`

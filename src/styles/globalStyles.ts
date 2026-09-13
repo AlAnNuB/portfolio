@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     --font-extrabold: 800;
     --font-black: 900;
     --max-width: 1200px;
-    --header-height: 4.5rem;
+    --header-height: 2.5rem;
   }
 
   * {

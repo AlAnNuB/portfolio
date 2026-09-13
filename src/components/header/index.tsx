@@ -15,6 +15,7 @@ import {
   Icons,
   MenuButton,
   MobilePanel,
+  Nav,
   NavLink,
   Overlay,
   Shell,
@@ -43,6 +44,14 @@ export const Header = () => {
             )}
           </MenuButton>
         </Brand>
+
+        <Nav aria-label="Navegação principal">
+          {navItems.map((item) => (
+            <NavLink key={item.id} href={`#${item.id}`} onClick={close}>
+              {item.label}
+            </NavLink>
+          ))}
+        </Nav>
 
         <Icons>
           <IconLink
