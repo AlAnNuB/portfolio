@@ -1,13 +1,14 @@
 import { routes } from "@/routes/routes";
 import { GlobalStyles } from "@/styles/globalStyles";
+import { theme } from "@/styles/themes";
 import { RouterProvider } from "react-router-dom";
-import { ThemeProviderContext } from "./context/themeContext";
+import { ThemeProvider } from "styled-components";
 
 export default function App() {
   return (
-    <ThemeProviderContext>
+    <ThemeProvider theme={theme}>
       <RouterProvider router={routes} />
       <GlobalStyles />
-    </ThemeProviderContext>
+    </ThemeProvider>
   );
 }
