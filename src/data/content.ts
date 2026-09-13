@@ -1,9 +1,3 @@
-import { Boot, Cloud, Code } from "@phosphor-icons/react";
-import { Spring } from "framer-motion";
-import { em } from "framer-motion/client";
-import React from "react";
-import { Styled } from "styled-components";
-
 export const profile = {
   firstName: "Alan",
   lastName: "Miranda",
