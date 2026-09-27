@@ -1,12 +1,15 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Hexagon } from "@/components/hexagon";
 
 export const Section = styled.section`
   background: ${({ theme }) => theme.black};
-  padding: 80px 32px;
+  padding: 100px 32px;
+  position: relative;
+  overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 56px 16px;
+    padding: 64px 20px;
   }
 `;
 
@@ -15,14 +18,13 @@ export const Inner = styled.div`
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 64px;
   align-items: center;
-  overflow: hidden;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
 `;
 
@@ -30,31 +32,90 @@ export const TextColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 20px;
 `;
 
 export const Lead = styled.h2`
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 800;
-  line-height: 1.15;
+  font-size: clamp(26px, 3.8vw, 44px);
+  font-weight: 900;
+  line-height: 1.18;
   text-transform: uppercase;
   color: ${({ theme }) => theme.white};
+  letter-spacing: -0.01em;
   text-wrap: balance;
 `;
 
-export const Copy = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.white};
-  opacity: 0.86;
+export const Highlight = styled.span`
+  color: ${({ theme }) => theme.yellow};
 `;
 
-export const Hive = styled.div`
+export const Copy = styled.p`
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: ${({ theme }) => theme.white};
+  opacity: 0.85;
+`;
+
+export const ButtonRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+`;
+
+export const VisualColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+`;
+
+export const TabsHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px;
+  border-radius: 999px;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+`;
+
+export const TabButton = styled.button<{ $active: boolean }>`
+  background: ${({ $active, theme }) =>
+    $active ? theme.yellow : "transparent"};
+  color: ${({ $active, theme }) => ($active ? theme.black : theme.white)};
+  border: 0;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 200ms ease;
+
+  &:hover {
+    color: ${({ $active, theme }) => ($active ? theme.black : theme.yellow)};
+  }
+`;
+
+export const ProgressBarsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 8px 0;
+`;
+
+export const Hive = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 12px 0;
 `;
 
 export const Row = styled.div<{ $offset: boolean }>`
@@ -70,43 +131,43 @@ export const Row = styled.div<{ $offset: boolean }>`
   }
 
   @media (max-width: 768px) {
-    margin-top: -20px;
+    margin-top: -18px;
   }
 `;
 
-export const TechnologyItem = styled.div`
+export const TechnologyItem = styled(motion.div)`
   position: relative;
   z-index: 0;
-  width: 104px;
-  height: 117px;
-  cursor: help;
-  transition: transform 180ms ease-out;
+  width: 96px;
+  height: 108px;
+  cursor: pointer;
 
   &:hover,
   &:focus,
   &:focus-visible {
-    z-index: 2;
-    transform: translateY(-6px);
+    z-index: 10;
   }
 
   & > span {
     position: absolute;
     left: 50%;
-    bottom: calc(100% - 8px);
+    bottom: calc(100% - 6px);
     transform: translate(-50%, 4px);
-    padding: 8px 10px;
+    padding: 6px 12px;
     border-radius: ${({ theme }) => theme.radiusXs};
-    background: ${({ theme }) => theme.black};
-    color: ${({ theme }) => theme.white};
-    font-size: 12px;
+    background: #111016;
+    color: ${({ theme }) => theme.yellow};
+    border: 1px solid #fcdb744d;
+    font-size: 11px;
     font-weight: 700;
     line-height: 1;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition:
-      opacity 160ms ease-out,
-      transform 160ms ease-out;
+      opacity 180ms ease-out,
+      transform 180ms ease-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
 
   &:hover > span,
@@ -117,42 +178,35 @@ export const TechnologyItem = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: min(104px, calc(20vw - 6.4px));
-    height: min(117px, calc(22.4vw - 7.168px));
+    width: min(84px, calc(20vw - 6px));
+    height: min(94px, calc(22.4vw - 7px));
 
     & > span {
       font-size: 10px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-    & > span {
-      transition: none;
     }
   }
 `;
 
 export const TechnologyHexagon = styled(Hexagon)`
   @media (max-width: 768px) {
-    width: min(104px, calc(20vw - 6.4px));
-    height: min(117px, calc(22.4vw - 7.168px));
+    width: min(84px, calc(20vw - 6px));
+    height: min(94px, calc(22.4vw - 7px));
   }
 `;
 
 export const Tooltip = styled.span``;
 
 export const Icon = styled.img`
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   padding: 8px;
   border-radius: 50%;
   background: ${({ theme }) => theme.black};
   object-fit: contain;
 
   @media (max-width: 768px) {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
     padding: 6px;
   }
 `;

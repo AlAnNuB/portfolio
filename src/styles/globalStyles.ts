@@ -8,8 +8,8 @@ export const GlobalStyles = createGlobalStyle`
     --font-bold: 700;
     --font-extrabold: 800;
     --font-black: 900;
-    --max-width: 1200px;
-    --header-height: 2.5rem;
+    --max-width: 1240px;
+    --header-height: 60px;
   }
 
   * {
@@ -18,11 +18,30 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1b1924;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #bea34c;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fcdb74;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -48,7 +67,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.white};
     color: ${({ theme }) => theme.black};
-    overflow: auto;
+    overflow-x: hidden;
   }
 
   :focus-visible {

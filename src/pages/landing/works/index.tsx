@@ -1,6 +1,9 @@
+import { ArrowUpRightIcon } from "@phosphor-icons/react";
+import { Reveal } from "@/components/reveal";
+import { TiltCard } from "@/components/reveal/tiltCard";
 import { SectionHeader } from "@/components/sectionHeader";
 import { works } from "@/data/content";
-import { Card, Grid, Inner, Meta, Section, Tag, Title } from "./styles";
+import { Card, CardBody, CardCover, CoverBadge, Grid, Inner, Meta, Section, Tag, Title } from "./styles";
 
 export const WorksSection = () => {
   return (
@@ -8,12 +11,23 @@ export const WorksSection = () => {
       <Inner>
         <SectionHeader title="Trabalhos em destaque" tone="light" />
         <Grid>
-          {works.map((work) => (
-            <Card key={work.href} href={work.href} target="_blank" rel="noopener noreferrer">
-              <Tag>{work.tag}</Tag>
-              <Title>{work.title}</Title>
-              <Meta>{work.description}</Meta>
-            </Card>
+          {works.map((work, index) => (
+            <Reveal key={work.title} direction="up" delay={0.1 + (index % 3) * 0.12}>
+              <TiltCard maxTilt={5}>
+                <Card href={work.href} target="_blank" rel="noopener noreferrer" aria-label={`Ver projeto ${work.title}`}>
+                  <CardCover $gradientIndex={index}>
+                    <CoverBadge>
+                      <ArrowUpRightIcon size={16} weight="bold" />
+                    </CoverBadge>
+                  </CardCover>
+                  <CardBody>
+                    <Tag>{work.tag}</Tag>
+                    <Title>{work.title}</Title>
+                    <Meta>{work.description}</Meta>
+                  </CardBody>
+                </Card>
+              </TiltCard>
+            </Reveal>
           ))}
         </Grid>
       </Inner>

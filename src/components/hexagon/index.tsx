@@ -27,12 +27,7 @@ type HexagonProps = {
   className?: string;
 };
 
-export const Hexagon = ({
-  size = 88,
-  tone = "yellow",
-  children,
-  className,
-}: HexagonProps) => {
+export const Hexagon = ({ size = 88, tone = "yellow", children, className }: HexagonProps) => {
   return (
     <Face $size={size} $tone={tone} className={className}>
       {children}

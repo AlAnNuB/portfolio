@@ -103,8 +103,7 @@ export const Modal = styled.div<{ $open: boolean }>`
   border-radius: ${({ theme }) => theme.radiusSm};
   background: ${({ theme }) => theme.white};
   color: ${({ theme }) => theme.black};
-  transform: ${({ $open }) =>
-    $open ? "translateY(0) scale(1)" : "translateY(10px) scale(0.97)"};
+  transform: ${({ $open }) => ($open ? "translateY(0) scale(1)" : "translateY(10px) scale(0.97)")};
   transition: transform 220ms cubic-bezier(0.32, 0.72, 0, 1);
 
   @media (prefers-reduced-motion: reduce) {

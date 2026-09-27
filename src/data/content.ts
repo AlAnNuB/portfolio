@@ -10,8 +10,7 @@ export const profile = {
   email: "alan@alannub.com.br",
   cv: "/CV.pdf",
   headline: "Desenvolvedor Full Stack baseado em Cotia",
-  heroIntro:
-    "Olá, eu sou Alan Miranda — desenvolvedor full stack focado em interfaces modernas, micro frontends e experiências que conectam produto e pessoas.",
+  heroIntro: "Olá, eu sou Alan Miranda — desenvolvedor full stack focado em interfaces modernas, micro frontends e experiências que conectam produto e pessoas.",
 };
 
 export const aboutParagraphs = [
@@ -30,23 +29,19 @@ export const navItems = [
 export const services = [
   {
     title: "Front-end",
-    description:
-      "React, TypeScript e Vite com componentes reutilizáveis e atenção ao Figma.",
+    description: "React, TypeScript e Vite com componentes reutilizáveis e atenção ao Figma.",
   },
   {
     title: "Micro frontends",
-    description:
-      "Arquitetura com Module Federation para escalar produtos entre times e domínios.",
+    description: "Arquitetura com Module Federation para escalar produtos entre times e domínios.",
   },
   {
     title: "Back-end",
-    description:
-      "APIs com Node.js, Express e PostgreSQL, com foco em estabilidade e performance.",
+    description: "APIs com Node.js, Express e PostgreSQL, com foco em estabilidade e performance.",
   },
   {
     title: "Produto em time",
-    description:
-      "Código limpo, colaboração ágil e interfaces consistentes em Sass e Styled Components.",
+    description: "Código limpo, colaboração ágil e interfaces consistentes em Sass e Styled Components.",
   },
 ];
 
@@ -78,30 +73,28 @@ export const experiences = [
     title: "Análise e Desenvolvimento de Sistemas",
     place: "Estácio de Sá",
     period: "2022 — 2025 · Cotia, SP",
-    description:
-      "Graduação técnologica em Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento web, arquitetura de software e metodologias ágeis.",
+    description: "Graduação técnologica em Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento web, arquitetura de software e metodologias ágeis.",
   },
   {
     kind: "Educação",
     title: "Desenvolvedor Full Stack Júnior",
     place: "Recode Pro",
     period: "2021 — 2022 · 540 horas",
-    description:
-      "Formação full stack com HTML, CSS, JavaScript, React, Java, Spring Boot, bancos de dados, Git, métodos ágeis e fundamentos de cloud, testes e segurança.",
+    description: "Formação full stack com HTML, CSS, JavaScript, React, Java, Spring Boot, bancos de dados, Git, métodos ágeis e fundamentos de cloud, testes e segurança.",
   },
 ];
 
 export const works = [
   {
-    title: "Portfólio pessoal",
-    description: "Site com React, TypeScript e Styled Components.",
+    title: "Portfólio Pessoal",
+    description: "Interface de alta fidelidade com React 19, TypeScript, Framer Motion e Styled Components.",
     href: "https://github.com/AlAnNuB/portfolio",
     tag: "Front-end",
   },
   {
     title: "Clone TabNews",
-    description: "Estudo do tabnews.com.br no curso.dev.",
+    description: "Plataforma web colaborativa completa com Next.js, PostgreSQL, migrations e testes automatizados.",
     href: "https://github.com/AlAnNuB/clone-tabnews",
-    tag: "Full stack",
+    tag: "Full Stack",
   },
 ];

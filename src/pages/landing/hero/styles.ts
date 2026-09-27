@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Section = styled.section`
@@ -5,32 +6,42 @@ export const Section = styled.section`
   background: ${({ theme }) => theme.yellow};
   overflow: hidden;
   min-height: 100svh;
-  display: grid;
-  place-items: center;
-  padding: 96px 32px 48px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 100px 32px 56px;
 
   @media (max-width: 768px) {
-    min-height: 90svh;
-    padding: 96px 16px 48px;
+    min-height: 100svh;
+    padding: 84px 20px 48px;
+    justify-content: center;
   }
 `;
 
-export const Watermark = styled.p`
+export const Watermark = styled(motion.div)`
   position: absolute;
-  left: 50%;
-  top: 20%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  top: 18%;
+  margin-inline: auto;
   width: 100%;
   text-align: center;
-  font-size: clamp(30px, 8vw, 98px);
+  font-size: clamp(30px, 7.5vw, 92px);
   font-weight: 900;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: ${({ theme }) => theme.black};
   opacity: 0.08;
   pointer-events: none;
   line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 0;
+
+  @media (max-width: 768px) {
+    top: 12%;
+    opacity: 0.06;
+  }
 `;
 
 export const Cluster = styled.div`
@@ -40,73 +51,113 @@ export const Cluster = styled.div`
   margin: 0 auto;
   display: grid;
   width: min(100%, 1312px);
-  grid-template-columns: minmax(250px, 1fr) 440px minmax(250px, 1fr);
+  grid-template-columns: minmax(260px, 1fr) 460px minmax(260px, 1fr);
   gap: 32px;
   align-items: end;
 
-  @media (max-width: 1023px) and (min-width: 701px) {
-    grid-template-columns: minmax(0, 1fr) 340px minmax(0, 1fr);
-    gap: 8px;
+  @media (max-width: 1100px) and (min-width: 769px) {
+    grid-template-columns: minmax(0, 1fr) 360px minmax(0, 1fr);
+    gap: 16px;
   }
 
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-    justify-items: center;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 24px;
   }
 `;
 
-export const TextBlock = styled.div<{ $align?: "right" }>`
+export const TextBlock = styled(motion.div)<{ $align?: "right" }>`
   display: flex;
   flex-direction: column;
-  align-items: ${({ $align }) =>
-    $align === "right" ? "flex-end" : "flex-start"};
-  gap: 16px;
+  align-items: ${({ $align }) => ($align === "right" ? "flex-end" : "flex-start")};
+  gap: 20px;
   justify-items: bottom;
 
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     align-items: center;
-    order: ${({ $align }) => ($align === "right" ? 3 : 2)};
+    order: ${({ $align }) => ($align === "right" ? 3 : 1)};
   }
 `;
 
-export const Role = styled.p`
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.4;
-  color: ${({ theme }) => theme.black};
-  text-wrap: balance;
-
-  @media (max-width: 1023px) and (min-width: 701px) {
-    font-size: 12px;
-  }
-`;
-
-export const Availability = styled.span`
-  display: block;
-  margin-bottom: 12px;
-  color: ${({ theme }) => theme.purple};
-  font-size: 12px;
+export const AvailabilityBadge = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: ${({ theme }) => theme.black};
+  opacity: 0.8;
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(0.85);
+    }
+  }
 `;
 
-export const Name = styled.h1`
-  font-size: clamp(48px, 8vw, 76px);
+export const Role = styled.h2`
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 800;
+  line-height: 1.35;
+  color: ${({ theme }) => theme.black};
+  text-wrap: balance;
+
+  @media (max-width: 1100px) and (min-width: 769px) {
+    font-size: 14px;
+  }
+`;
+
+export const Name = styled(motion.h1)`
+  font-size: clamp(48px, 7.5vw, 84px);
   font-weight: 900;
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   line-height: 0.9;
   color: ${({ theme }) => theme.black};
   text-wrap: balance;
 
-  @media (max-width: 1023px) and (min-width: 701px) {
-    font-size: 42px;
+  @media (max-width: 1100px) and (min-width: 769px) {
+    font-size: clamp(38px, 5vw, 54px);
   }
 
-  @media (width <= 767px) {
+  @media (max-width: 768px) {
     display: none;
+  }
+`;
+
+export const MobileName = styled(motion.h1)`
+  display: none;
+  font-size: clamp(36px, 10vw, 52px);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: ${({ theme }) => theme.black};
+  margin-top: 4px;
+
+  @media (max-width: 768px) {
+    display: block;
+    order: 2;
   }
 `;
 
@@ -116,10 +167,27 @@ export const Intro = styled.p`
   font-weight: 500;
   line-height: 1.6;
   color: ${({ theme }) => theme.black};
+  opacity: 0.92;
 
-  @media (max-width: 1023px) and (min-width: 701px) {
-    max-width: 170px;
-    font-size: 10px;
-    line-height: 1.4;
+  @media (max-width: 1100px) and (min-width: 769px) {
+    max-width: 200px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 440px;
+    font-size: 13px;
+  }
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: center;
   }
 `;

@@ -27,6 +27,7 @@ export const FormColumn = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+  width: 100%;
 `;
 
 export const Field = styled.div`
@@ -36,6 +37,11 @@ export const Field = styled.div`
   gap: 8px;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(250, 250, 250, 0.18);
+  transition: border-color 200ms ease;
+
+  &:hover {
+    border-color: ${({ theme }) => theme.yellow};
+  }
 `;
 
 export const Label = styled.span`
@@ -53,17 +59,30 @@ export const Value = styled.a`
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  transition:
+    color 200ms ease,
+    transform 200ms ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.yellow};
+    transform: translateX(4px);
+  }
 `;
 
 export const PhotoFrame = styled.div`
   border-radius: ${({ theme }) => theme.radiusSm};
   overflow: hidden;
-  min-height: 280px;
-  background: ${({ theme }) => theme.yellow};
+  height: 100%;
+  min-height: 420px;
+  max-height: 520px;
+  background: #18171f;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 
   @media (max-width: 1024px) {
-    min-height: 220px;
-    max-height: 320px;
+    min-height: 260px;
+    max-height: 360px;
   }
 `;
 
@@ -72,4 +91,9 @@ export const Photo = styled.img`
   height: 100%;
   object-fit: cover;
   object-position: center 18%;
+  transition: transform 400ms ease;
+
+  ${PhotoFrame}:hover & {
+    transform: scale(1.03);
+  }
 `;
