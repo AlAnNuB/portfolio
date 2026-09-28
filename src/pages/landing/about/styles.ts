@@ -142,6 +142,10 @@ export const TechnologyItem = styled(motion.div)`
   height: 108px;
   cursor: pointer;
 
+  &:active {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   &:hover,
   &:focus,
   &:focus-visible {
