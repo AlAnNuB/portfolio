@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { type MouseEvent, useRef } from "react";
 import styled from "styled-components";
 import { theme } from "@/styles/themes";
@@ -112,19 +112,25 @@ const Svg = styled.svg`
 
 export const HoneycombAvatar = ({ src, alt }: HoneycombAvatarProps) => {
   const frameRef = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   const springX = useSpring(mouseX, { stiffness: 120, damping: 18 });
   const springY = useSpring(mouseY, { stiffness: 120, damping: 18 });
+  const sheenX = useTransform(springX, [-0.5, 0.5], [0, VIEWBOX_WIDTH]);
+  const sheenY = useTransform(springY, [-0.5, 0.5], [0, VIEWBOX_HEIGHT]);
+  const sheenProgress = useMotionValue(0);
+  const sheenProgressSpring = useSpring(sheenProgress, { stiffness: 260, damping: 28 });
+  const sheenOpacity = useTransform(sheenProgressSpring, [0, 1], [0, 0.58]);
+  const sheenRadiusX = useTransform(sheenProgressSpring, [0, 1], [20, 70]);
+  const sheenRadiusY = useTransform(sheenProgressSpring, [0, 1], [30, 95]);
 
   const rotateX = useTransform(springY, [-0.5, 0.5], [6, -6]);
   const rotateY = useTransform(springX, [-0.5, 0.5], [-6, 6]);
 
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    if (shouldReduceMotion || !frameRef.current) return;
+    if (!frameRef.current) return;
     const rect = frameRef.current.getBoundingClientRect();
     const xPct = (event.clientX - rect.left) / rect.width - 0.5;
     const yPct = (event.clientY - rect.top) / rect.height - 0.5;
@@ -135,16 +141,22 @@ export const HoneycombAvatar = ({ src, alt }: HoneycombAvatarProps) => {
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
+    sheenProgress.set(0);
+  };
+
+  const handleMouseEnter = () => {
+    sheenProgress.set(1);
   };
 
   return (
     <Frame
       ref={frameRef}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
-        rotateX: shouldReduceMotion ? 0 : rotateX,
-        rotateY: shouldReduceMotion ? 0 : rotateY,
+        rotateX,
+        rotateY,
         transformStyle: "preserve-3d",
       }}
       initial={{ opacity: 0, scale: 0.9 }}
@@ -152,13 +164,7 @@ export const HoneycombAvatar = ({ src, alt }: HoneycombAvatarProps) => {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       <motion.div
-        animate={
-          shouldReduceMotion
-            ? {}
-            : {
-                y: [0, -8, 0],
-              }
-        }
+        animate={{ y: [0, -8, 0] }}
         transition={{
           duration: 4.5,
           repeat: Infinity,
@@ -173,6 +179,11 @@ export const HoneycombAvatar = ({ src, alt }: HoneycombAvatarProps) => {
                 <polygon key={`photo-${index}`} points={getHexagonPoints(cell)} />
               ))}
             </clipPath>
+            <radialGradient id="avatar-glass-sheen" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={theme.colors.white} stopOpacity="0.42" />
+              <stop offset="45%" stopColor={theme.colors.white} stopOpacity="0.14" />
+              <stop offset="100%" stopColor={theme.colors.white} stopOpacity="0" />
+            </radialGradient>
           </defs>
 
           <g>
@@ -190,6 +201,14 @@ export const HoneycombAvatar = ({ src, alt }: HoneycombAvatarProps) => {
           {/* Photo clipped to the entire honeycomb silhouette, using mix-blend-mode: darken */}
           <g clipPath="url(#avatar-honeycomb-clip)">
             <image className="avatar-image" href={src} x="35" y="0" width="530" height="620" preserveAspectRatio="xMidYMid slice" />
+            <motion.ellipse
+              cx={sheenX}
+              cy={sheenY}
+              rx={sheenRadiusX}
+              ry={sheenRadiusY}
+              fill="url(#avatar-glass-sheen)"
+              style={{ opacity: sheenOpacity }}
+            />
           </g>
 
           {/* Honeycomb grid overlay lines */}
