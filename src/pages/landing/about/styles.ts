@@ -16,6 +16,7 @@ export const Section = styled.section`
 export const Inner = styled.div`
   max-width: var(--max-width);
   width: 100%;
+  min-width: 0;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -32,6 +33,7 @@ export const TextColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 0;
   gap: ${({ theme }) => theme.gaps["3xl"]};
 `;
 
@@ -47,6 +49,7 @@ export const Lead = styled.h2`
   color: ${({ theme }) => theme.colors.white};
   letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
   text-wrap: balance;
+  overflow-wrap: anywhere;
 `;
 
 export const Highlight = styled.span`
@@ -59,6 +62,7 @@ export const Copy = styled.p`
   line-height: ${({ theme }) => theme.lineHeights.relaxed};
   color: ${({ theme }) => theme.colors.white};
   opacity: 0.85;
+  overflow-wrap: anywhere;
 `;
 
 export const ButtonRow = styled.div`
@@ -73,6 +77,7 @@ export const VisualColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.gaps["5xl"]};
+  min-width: 0;
   width: 100%;
 `;
 
@@ -83,8 +88,15 @@ export const TabsHeader = styled.div`
   background: ${({ theme }) => theme.colors.white05};
   padding: 0.25rem;
   border-radius: ${({ theme }) => theme.radii.control};
+  max-width: 100%;
   width: fit-content;
+  flex-wrap: wrap;
   border: 1px solid ${({ theme }) => theme.colors.white10};
+
+  @media (max-width: 48rem) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const TabButton = styled.button<{ $active: boolean }>`
@@ -99,6 +111,11 @@ export const TabButton = styled.button<{ $active: boolean }>`
   text-transform: uppercase;
   cursor: pointer;
   transition: all ${({ theme }) => theme.motion.base};
+
+  @media (max-width: 48rem) {
+    flex: 1 1 8rem;
+    padding-inline: 0.75rem;
+  }
 
   &:hover {
     color: ${({ $active, theme }) => ($active ? theme.colors.black : theme.colors.yellow)};

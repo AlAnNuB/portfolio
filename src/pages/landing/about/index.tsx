@@ -46,8 +46,8 @@ export const AboutSection = () => {
           <SectionHeader title="Sobre mim" tone="dark" />
           <Reveal direction="up" delay={0.1}>
             <Lead>
-              Minha paixão é <Highlight>projetar & desenvolver</Highlight>
-              interfaces memoráveis que
+              Minha paixão é <Highlight>projetar & desenvolver</Highlight>{" "}
+              interfaces memoráveis que{" "}
               <Highlight>conectam e convertem</Highlight>.
             </Lead>
           </Reveal>
