@@ -12,10 +12,6 @@ import { Page } from "./styles";
 export const Landing = () => {
   useEffect(() => {
     document.title = "Alan Miranda — Desenvolvedor Full Stack";
-    const hash = window.location.hash;
-    if (hash) {
-      document.querySelector(hash)?.scrollIntoView();
-    }
   }, []);
 
   return (
