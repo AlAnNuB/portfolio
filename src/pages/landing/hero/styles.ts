@@ -74,8 +74,7 @@ export const Cluster = styled.div`
 export const TextBlock = styled(motion.div)<{ $align?: "right" }>`
   display: flex;
   flex-direction: column;
-  align-items: ${({ $align }) =>
-    $align === "right" ? "flex-end" : "flex-start"};
+  align-items: ${({ $align }) => ($align === "right" ? "flex-end" : "flex-start")};
   gap: ${({ theme }) => theme.gaps["3xl"]};
   justify-items: bottom;
 

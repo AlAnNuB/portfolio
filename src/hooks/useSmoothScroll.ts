@@ -1,9 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 
-const easeInOut = (progress: number) =>
-  progress < 0.5
-    ? 2 * progress ** 2
-    : 1 - ((-2 * progress + 2) ** 2) / 2;
+const easeInOut = (progress: number) => (progress < 0.5 ? 2 * progress ** 2 : 1 - (-2 * progress + 2) ** 2 / 2);
 
 export const useSmoothScroll = () => {
   const animationFrame = useRef<number | null>(null);
@@ -15,10 +12,7 @@ export const useSmoothScroll = () => {
 
     const header = document.querySelector<HTMLElement>("header");
     const headerOffset = header?.getBoundingClientRect().height ?? 0;
-    const targetPosition = Math.max(
-      0,
-      window.scrollY + section.getBoundingClientRect().top - headerOffset,
-    );
+    const targetPosition = Math.max(0, window.scrollY + section.getBoundingClientRect().top - headerOffset);
     const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
     const duration = Math.min(900, Math.max(450, Math.abs(distance) * 0.5));

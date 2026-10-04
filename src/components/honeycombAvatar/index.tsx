@@ -201,14 +201,7 @@ export const HoneycombAvatar = ({ src, alt }: HoneycombAvatarProps) => {
           {/* Photo clipped to the entire honeycomb silhouette, using mix-blend-mode: darken */}
           <g clipPath="url(#avatar-honeycomb-clip)">
             <image className="avatar-image" href={src} x="35" y="0" width="530" height="620" preserveAspectRatio="xMidYMid slice" />
-            <motion.ellipse
-              cx={sheenX}
-              cy={sheenY}
-              rx={sheenRadiusX}
-              ry={sheenRadiusY}
-              fill="url(#avatar-glass-sheen)"
-              style={{ opacity: sheenOpacity }}
-            />
+            <motion.ellipse cx={sheenX} cy={sheenY} rx={sheenRadiusX} ry={sheenRadiusY} fill="url(#avatar-glass-sheen)" style={{ opacity: sheenOpacity }} />
           </g>
 
           {/* Honeycomb grid overlay lines */}

@@ -70,12 +70,7 @@ export const Header = () => {
 
         <Nav aria-label="Navegação principal">
           {navItems.map((item) => (
-            <NavLink
-              key={item.id}
-              href={`#${item.id}`}
-              $active={activeSection === item.id}
-              onClick={(event) => navigateToSection(event, item.id)}
-            >
+            <NavLink key={item.id} href={`#${item.id}`} $active={activeSection === item.id} onClick={(event) => navigateToSection(event, item.id)}>
               {item.label}
             </NavLink>
           ))}
@@ -98,12 +93,7 @@ export const Header = () => {
 
       <MobilePanel $open={open} aria-hidden={!open}>
         {navItems.map((item) => (
-          <NavLink
-            key={item.id}
-            href={`#${item.id}`}
-            $active={activeSection === item.id}
-            onClick={(event) => navigateToSection(event, item.id)}
-          >
+          <NavLink key={item.id} href={`#${item.id}`} $active={activeSection === item.id} onClick={(event) => navigateToSection(event, item.id)}>
             {item.label}
           </NavLink>
         ))}
