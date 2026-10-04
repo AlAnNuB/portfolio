@@ -5,14 +5,12 @@ export const Section = styled.section`
   position: relative;
   background: ${({ theme }) => theme.colors.yellow};
   overflow: hidden;
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 6.25rem 2rem 3.5rem;
 
   @media (max-width: 48rem) {
-    min-height: 100svh;
     padding: 5.25rem 1.25rem 3rem;
     justify-content: center;
   }
@@ -26,7 +24,11 @@ export const Watermark = styled(motion.div)`
   margin-inline: auto;
   width: 100%;
   text-align: center;
-  font-size: clamp(${({ theme }) => theme.fontSizes.heroWatermarkMin}, 7.5vw, ${({ theme }) => theme.fontSizes.heroWatermarkMax});
+  font-size: clamp(
+    ${({ theme }) => theme.fontSizes.heroWatermarkMin},
+    7.5vw,
+    ${({ theme }) => theme.fontSizes.heroWatermarkMax}
+  );
   font-weight: ${({ theme }) => theme.fontWeights.black};
   letter-spacing: ${({ theme }) => theme.letterSpacings.display};
   text-transform: uppercase;
@@ -51,12 +53,12 @@ export const Cluster = styled.div`
   margin: 0 auto;
   display: grid;
   width: min(100%, 82rem);
-  grid-template-columns: minmax(16.25rem, 1fr) 28.75rem minmax(16.25rem, 1fr);
+  grid-template-columns: minmax(16.25rem, 1fr) 34rem minmax(16.25rem, 1fr);
   gap: ${({ theme }) => theme.gaps["6xl"]};
   align-items: end;
 
   @media (max-width: 68.75rem) and (min-width: 48.06rem) {
-    grid-template-columns: minmax(0, 1fr) 22.5rem minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 25.5rem minmax(0, 1fr);
     gap: ${({ theme }) => theme.gaps["2xl"]};
   }
 
@@ -72,7 +74,8 @@ export const Cluster = styled.div`
 export const TextBlock = styled(motion.div)<{ $align?: "right" }>`
   display: flex;
   flex-direction: column;
-  align-items: ${({ $align }) => ($align === "right" ? "flex-end" : "flex-start")};
+  align-items: ${({ $align }) =>
+    $align === "right" ? "flex-end" : "flex-start"};
   gap: ${({ theme }) => theme.gaps["3xl"]};
   justify-items: bottom;
 
@@ -104,7 +107,8 @@ export const AvailabilityBadge = styled.span`
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
       transform: scale(1);
     }
@@ -116,7 +120,11 @@ export const AvailabilityBadge = styled.span`
 `;
 
 export const Role = styled.h2`
-  font-size: clamp(${({ theme }) => theme.fontSizes.body}, 1.8vw, ${({ theme }) => theme.fontSizes.roleMax});
+  font-size: clamp(
+    ${({ theme }) => theme.fontSizes.body},
+    1.8vw,
+    ${({ theme }) => theme.fontSizes.roleMax}
+  );
   font-weight: ${({ theme }) => theme.fontWeights.extrabold};
   line-height: ${({ theme }) => theme.lineHeights.role};
   color: ${({ theme }) => theme.colors.black};
@@ -128,7 +136,11 @@ export const Role = styled.h2`
 `;
 
 export const Name = styled(motion.h1)`
-  font-size: clamp(${({ theme }) => theme.fontSizes.nameMin}, 7.5vw, ${({ theme }) => theme.fontSizes.nameMax});
+  font-size: clamp(
+    ${({ theme }) => theme.fontSizes.nameMin},
+    7.5vw,
+    ${({ theme }) => theme.fontSizes.nameMax}
+  );
   font-weight: ${({ theme }) => theme.fontWeights.black};
   letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
   text-transform: uppercase;
@@ -137,7 +149,11 @@ export const Name = styled(motion.h1)`
   text-wrap: balance;
 
   @media (max-width: 68.75rem) and (min-width: 48.06rem) {
-    font-size: clamp(${({ theme }) => theme.fontSizes.nameTabletMin}, 5vw, ${({ theme }) => theme.fontSizes.nameTabletMax});
+    font-size: clamp(
+      ${({ theme }) => theme.fontSizes.nameTabletMin},
+      5vw,
+      ${({ theme }) => theme.fontSizes.nameTabletMax}
+    );
   }
 
   @media (max-width: 48rem) {
@@ -147,7 +163,11 @@ export const Name = styled(motion.h1)`
 
 export const MobileName = styled(motion.h1)`
   display: none;
-  font-size: clamp(${({ theme }) => theme.fontSizes.mobileNameMin}, 10vw, ${({ theme }) => theme.fontSizes.mobileNameMax});
+  font-size: clamp(
+    ${({ theme }) => theme.fontSizes.mobileNameMin},
+    10vw,
+    ${({ theme }) => theme.fontSizes.mobileNameMax}
+  );
   font-weight: ${({ theme }) => theme.fontWeights.black};
   letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
   text-transform: uppercase;

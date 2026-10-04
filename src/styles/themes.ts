@@ -147,6 +147,11 @@ export const sizes = {
   cardMinHeight: "17.5rem",
   coverHeight: "7.5rem",
   badge: "2rem",
+  avatarDesktop: "34rem",
+  avatarWide: "30rem",
+  avatarTablet: "25.5rem",
+  avatarMobile: "19rem",
+  avatarMobileSmall: "16rem",
 } as const;
 
 export const breakpoints = {

@@ -51,26 +51,26 @@ function getHexagonPoints({ x, y }: Point, radius = HEX_RADIUS) {
 }
 
 const Frame = styled(motion.div)`
-  width: 30rem;
+  width: min(${({ theme }) => theme.sizes.avatarDesktop}, 100%);
   aspect-ratio: 600 / 700;
   margin-inline: auto;
   isolation: isolate;
   perspective: 62.5rem;
 
   @media (max-width: 74.94rem) {
-    width: 26.25rem;
+    width: min(${({ theme }) => theme.sizes.avatarWide}, 100%);
   }
 
   @media (max-width: 63.94rem) {
-    width: 21.25rem;
+    width: min(${({ theme }) => theme.sizes.avatarTablet}, 100%);
   }
 
   @media (max-width: 47.94rem) {
-    width: 16.88rem;
+    width: min(${({ theme }) => theme.sizes.avatarMobile}, 78vw);
   }
 
   @media (max-width: 30rem) {
-    width: 13.12rem;
+    width: min(${({ theme }) => theme.sizes.avatarMobileSmall}, 74vw);
   }
 `;
 
