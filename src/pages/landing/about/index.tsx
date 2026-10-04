@@ -26,11 +26,7 @@ import {
   VisualColumn,
 } from "./styles";
 
-const rows = [
-  technologies.slice(0, 5),
-  technologies.slice(5, 9),
-  technologies.slice(9, 14),
-];
+const rows = [technologies.slice(0, 5), technologies.slice(5, 9), technologies.slice(9, 14)];
 
 const skills = [
   { label: "Front-end (React, Next.js & TS)", percentage: 95 },
@@ -57,23 +53,14 @@ export const AboutSection = () => {
           </Reveal>
 
           {aboutParagraphs.map((paragraph, index) => (
-            <Reveal
-              key={paragraph.slice(0, 24)}
-              direction="up"
-              delay={0.2 + index * 0.1}
-            >
+            <Reveal key={paragraph.slice(0, 24)} direction="up" delay={0.2 + index * 0.1}>
               <Copy>{paragraph}</Copy>
             </Reveal>
           ))}
 
           <Reveal direction="up" delay={0.4}>
             <ButtonRow>
-              <Button
-                $variant="light"
-                href={profile.cv}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Button $variant="light" href={profile.cv} target="_blank" rel="noopener noreferrer">
                 Baixar currículo
               </Button>
             </ButtonRow>
@@ -90,18 +77,10 @@ export const AboutSection = () => {
               }}
             >
               <TabsHeader>
-                <TabButton
-                  type="button"
-                  $active={activeTab === "skills"}
-                  onClick={() => setActiveTab("skills")}
-                >
+                <TabButton type="button" $active={activeTab === "skills"} onClick={() => setActiveTab("skills")}>
                   Competências
                 </TabButton>
-                <TabButton
-                  type="button"
-                  $active={activeTab === "techs"}
-                  onClick={() => setActiveTab("techs")}
-                >
+                <TabButton type="button" $active={activeTab === "techs"} onClick={() => setActiveTab("techs")}>
                   Tecnologias
                 </TabButton>
               </TabsHeader>
@@ -111,25 +90,13 @@ export const AboutSection = () => {
           {activeTab === "skills" ? (
             <ProgressBarsWrapper>
               {skills.map((skill, index) => (
-                <AnimatedProgressBar
-                  key={skill.label}
-                  label={skill.label}
-                  percentage={skill.percentage}
-                  delay={0.15 + index * 0.1}
-                />
+                <AnimatedProgressBar key={skill.label} label={skill.label} percentage={skill.percentage} delay={0.15 + index * 0.1} />
               ))}
             </ProgressBarsWrapper>
           ) : (
-            <Hive
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-            >
+            <Hive initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4 }}>
               {rows.map((row, rowIndex) => (
-                <Row
-                  key={row.map((item) => item.name).join("-")}
-                  $offset={rowIndex % 2 === 1}
-                >
+                <Row key={row.map((item) => item.name).join("-")} $offset={rowIndex % 2 === 1}>
                   {row.map((tech, index) => (
                     <TechnologyItem
                       key={tech.name}
@@ -143,10 +110,7 @@ export const AboutSection = () => {
                         damping: 17,
                       }}
                     >
-                      <TechnologyHexagon
-                        size={96}
-                        tone={index % 2 === 0 ? "yellow" : "white"}
-                      >
+                      <TechnologyHexagon size={96} tone={index % 2 === 0 ? "yellow" : "white"}>
                         <Icon src={tech.icon} alt="" />
                         <Caption>{tech.name}</Caption>
                       </TechnologyHexagon>

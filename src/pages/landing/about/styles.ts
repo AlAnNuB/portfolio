@@ -88,10 +88,8 @@ export const TabsHeader = styled.div`
 `;
 
 export const TabButton = styled.button<{ $active: boolean }>`
-  background: ${({ $active, theme }) =>
-    $active ? theme.colors.yellow : "transparent"};
-  color: ${({ $active, theme }) =>
-    $active ? theme.colors.black : theme.colors.white};
+  background: ${({ $active, theme }) => ($active ? theme.colors.yellow : "transparent")};
+  color: ${({ $active, theme }) => ($active ? theme.colors.black : theme.colors.white)};
   border: 0;
   padding: 0.5rem 1.125rem;
   border-radius: ${({ theme }) => theme.radii.control};
@@ -103,8 +101,7 @@ export const TabButton = styled.button<{ $active: boolean }>`
   transition: all ${({ theme }) => theme.motion.base};
 
   &:hover {
-    color: ${({ $active, theme }) =>
-      $active ? theme.colors.black : theme.colors.yellow};
+    color: ${({ $active, theme }) => ($active ? theme.colors.black : theme.colors.yellow)};
   }
 `;
 

@@ -1,10 +1,5 @@
 import { ArrowRightIcon } from "@phosphor-icons/react";
-import {
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
-  forwardRef,
-  type ReactNode,
-} from "react";
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 type ButtonBaseProps = {
@@ -160,10 +155,7 @@ const StyledButton = styled.button<{ $variant?: "dark" | "light" | "outline" }>`
   ${sharedStyles}
 `;
 
-export const Button = forwardRef<
-  HTMLAnchorElement | HTMLButtonElement,
-  ButtonProps
->(({ children, $variant = "dark", showArrow = true, ...props }, ref) => {
+export const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(({ children, $variant = "dark", showArrow = true, ...props }, ref) => {
   const content = (
     <>
       {showArrow && (
@@ -179,11 +171,7 @@ export const Button = forwardRef<
     const { as: _as, ...buttonProps } = props as ButtonAsButton;
     void _as;
     return (
-      <StyledButton
-        ref={ref as React.Ref<HTMLButtonElement>}
-        $variant={$variant}
-        {...buttonProps}
-      >
+      <StyledButton ref={ref as React.Ref<HTMLButtonElement>} $variant={$variant} {...buttonProps}>
         {content}
       </StyledButton>
     );
@@ -192,11 +180,7 @@ export const Button = forwardRef<
   const { as: _as, ...anchorProps } = props as ButtonAsAnchor;
   void _as;
   return (
-    <StyledAnchor
-      ref={ref as React.Ref<HTMLAnchorElement>}
-      $variant={$variant}
-      {...anchorProps}
-    >
+    <StyledAnchor ref={ref as React.Ref<HTMLAnchorElement>} $variant={$variant} {...anchorProps}>
       {content}
     </StyledAnchor>
   );

@@ -7,11 +7,9 @@ export const Bar = styled.header<{ $scrolled: boolean }>`
   z-index: 50;
   height: 3.75rem;
   width: 100%;
-  background: ${({ $scrolled, theme }) =>
-    $scrolled ? theme.colors.yellow92 : theme.colors.yellow};
+  background: ${({ $scrolled, theme }) => ($scrolled ? theme.colors.yellow92 : theme.colors.yellow)};
   backdrop-filter: ${({ $scrolled }) => ($scrolled ? "blur(0.75rem)" : "none")};
-  box-shadow: ${({ $scrolled, theme }) =>
-    $scrolled ? theme.shadows.header : "none"};
+  box-shadow: ${({ $scrolled, theme }) => ($scrolled ? theme.shadows.header : "none")};
   transition:
     background-color ${({ theme }) => theme.motion.slow},
     box-shadow ${({ theme }) => theme.motion.slow},
@@ -176,8 +174,7 @@ export const MobilePanel = styled.nav<{ $open: boolean }>`
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
   pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
-  transform: ${({ $open }) =>
-    $open ? "translateX(0)" : "translateX(1.25rem)"};
+  transform: ${({ $open }) => ($open ? "translateX(0)" : "translateX(1.25rem)")};
   transition:
     opacity 240ms ease-out,
     transform 240ms cubic-bezier(0.16, 1, 0.3, 1),

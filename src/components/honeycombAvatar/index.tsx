@@ -1,10 +1,4 @@
-import {
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import { type MouseEvent, useRef } from "react";
 import styled from "styled-components";
 import { theme } from "@/styles/themes";
@@ -172,53 +166,30 @@ export const HoneycombAvatar = ({ src, alt }: HoneycombAvatarProps) => {
         }}
         style={{ width: "100%", height: "100%" }}
       >
-        <Svg
-          viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
-          role="img"
-          aria-label={alt}
-        >
+        <Svg viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`} role="img" aria-label={alt}>
           <defs>
             <clipPath id="avatar-honeycomb-clip">
               {photoCells.map((cell, index) => (
-                <polygon
-                  key={`photo-${index}`}
-                  points={getHexagonPoints(cell)}
-                />
+                <polygon key={`photo-${index}`} points={getHexagonPoints(cell)} />
               ))}
             </clipPath>
           </defs>
 
           <g>
             {cells.map((cell, index) => (
-              <polygon
-                className="background-cell"
-                key={`background-${index}`}
-                points={getHexagonPoints(cell)}
-              />
+              <polygon className="background-cell" key={`background-${index}`} points={getHexagonPoints(cell)} />
             ))}
           </g>
 
           <g>
             {photoCells.map((cell, index) => (
-              <polygon
-                className="photo-cell"
-                key={`photo-cell-${index}`}
-                points={getHexagonPoints(cell)}
-              />
+              <polygon className="photo-cell" key={`photo-cell-${index}`} points={getHexagonPoints(cell)} />
             ))}
           </g>
 
           {/* Photo clipped to the entire honeycomb silhouette, using mix-blend-mode: darken */}
           <g clipPath="url(#avatar-honeycomb-clip)">
-            <image
-              className="avatar-image"
-              href={src}
-              x="35"
-              y="0"
-              width="530"
-              height="620"
-              preserveAspectRatio="xMidYMid slice"
-            />
+            <image className="avatar-image" href={src} x="35" y="0" width="530" height="620" preserveAspectRatio="xMidYMid slice" />
           </g>
 
           {/* Honeycomb grid overlay lines */}

@@ -12,8 +12,7 @@ const HexIcon = styled(motion.svg)<{ $tone: "light" | "dark" }>`
   width: ${({ theme }) => theme.spacing.lg};
   height: ${({ theme }) => theme.spacing.xl};
   flex-shrink: 0;
-  fill: ${({ $tone, theme }) =>
-    $tone === "dark" ? theme.colors.yellow : theme.colors.black};
+  fill: ${({ $tone, theme }) => ($tone === "dark" ? theme.colors.yellow : theme.colors.black)};
 `;
 
 const Label = styled.p<{ $tone: "light" | "dark" }>`
@@ -21,8 +20,7 @@ const Label = styled.p<{ $tone: "light" | "dark" }>`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   letter-spacing: ${({ theme }) => theme.letterSpacings.eyebrow};
   text-transform: uppercase;
-  color: ${({ $tone, theme }) =>
-    $tone === "dark" ? theme.colors.white : theme.colors.black};
+  color: ${({ $tone, theme }) => ($tone === "dark" ? theme.colors.white : theme.colors.black)};
 `;
 
 type SectionHeaderProps = {
@@ -30,18 +28,9 @@ type SectionHeaderProps = {
   tone?: "light" | "dark";
 };
 
-export const SectionHeader = ({
-  title,
-  tone = "light",
-}: SectionHeaderProps) => {
+export const SectionHeader = ({ title, tone = "light" }: SectionHeaderProps) => {
   return (
-    <Wrapper
-      $tone={tone}
-      initial={{ opacity: 0, x: -16 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <Wrapper $tone={tone} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
       <HexIcon
         $tone={tone}
         viewBox="0 0 24 28"
