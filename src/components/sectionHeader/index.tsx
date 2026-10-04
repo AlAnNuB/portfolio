@@ -4,23 +4,25 @@ import styled from "styled-components";
 const Wrapper = styled(motion.header)<{ $tone: "light" | "dark" }>`
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: ${({ theme }) => theme.gaps.xl};
+  margin-bottom: ${({ theme }) => theme.spacing["3xl"]};
 `;
 
 const HexIcon = styled(motion.svg)<{ $tone: "light" | "dark" }>`
-  width: 14px;
-  height: 16px;
+  width: ${({ theme }) => theme.spacing.lg};
+  height: ${({ theme }) => theme.spacing.xl};
   flex-shrink: 0;
-  fill: ${({ $tone, theme }) => ($tone === "dark" ? theme.yellow : theme.black)};
+  fill: ${({ $tone, theme }) =>
+    $tone === "dark" ? theme.colors.yellow : theme.colors.black};
 `;
 
 const Label = styled.p<{ $tone: "light" | "dark" }>`
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.eyebrow};
   text-transform: uppercase;
-  color: ${({ $tone, theme }) => ($tone === "dark" ? theme.white : theme.black)};
+  color: ${({ $tone, theme }) =>
+    $tone === "dark" ? theme.colors.white : theme.colors.black};
 `;
 
 type SectionHeaderProps = {
@@ -28,9 +30,18 @@ type SectionHeaderProps = {
   tone?: "light" | "dark";
 };
 
-export const SectionHeader = ({ title, tone = "light" }: SectionHeaderProps) => {
+export const SectionHeader = ({
+  title,
+  tone = "light",
+}: SectionHeaderProps) => {
   return (
-    <Wrapper $tone={tone} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
+    <Wrapper
+      $tone={tone}
+      initial={{ opacity: 0, x: -16 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+    >
       <HexIcon
         $tone={tone}
         viewBox="0 0 24 28"

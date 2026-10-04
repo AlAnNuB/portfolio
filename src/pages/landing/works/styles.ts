@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Section = styled.section`
-  background: ${({ theme }) => theme.yellow};
-  padding: 100px 32px;
+  background: ${({ theme }) => theme.colors.yellow};
+  padding: ${({ theme }) => `${theme.spacing["7xl"]} ${theme.spacing["3xl"]}`};
   position: relative;
   overflow: hidden;
 
-  @media (max-width: 768px) {
-    padding: 64px 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: ${({ theme }) => `${theme.spacing["6xl"]} ${theme.spacing.xl}`};
   }
 `;
 
@@ -20,40 +20,40 @@ export const Inner = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: ${({ theme }) => theme.gaps["2xl"]};
 
-  @media (max-width: 1024px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: ${({ theme }) => theme.gaps.xl};
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: ${({ theme }) => theme.gaps.lg};
   }
 `;
 
 export const Card = styled(motion.a)`
   display: flex;
   flex-direction: column;
-  min-height: 280px;
-  border-radius: 20px;
-  background: ${({ theme }) => theme.black};
-  color: ${({ theme }) => theme.white};
+  min-height: ${({ theme }) => theme.sizes.cardMinHeight};
+  border-radius: ${({ theme }) => theme.radii.card};
+  background: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
   overflow: hidden;
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 24px rgba(36, 34, 45, 0.15);
+  border: 1px solid ${({ theme }) => theme.colors.white08};
+  box-shadow: ${({ theme }) => theme.shadows.card};
   transition:
     transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 280ms ease;
+    border-color ${({ theme }) => theme.motion.slow};
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 36px rgba(36, 34, 45, 0.28);
-    border-color: rgba(252, 219, 116, 0.4);
+    transform: translateY(-0.5rem);
+    box-shadow: ${({ theme }) => theme.shadows.cardHover};
+    border-color: ${({ theme }) => theme.colors.yellow40};
   }
 
   &:active {
@@ -62,30 +62,25 @@ export const Card = styled(motion.a)`
 `;
 
 export const CardCover = styled.div<{ $gradientIndex: number }>`
-  height: 120px;
+  height: ${({ theme }) => theme.sizes.coverHeight};
   width: 100%;
   position: relative;
   overflow: hidden;
-  background: ${({ $gradientIndex }) => {
-    const gradients = [
-      "linear-gradient(135deg, #1e1d27 0%, #2e2c3b 50%, #1a1923 100%)",
-      "linear-gradient(135deg, #262432 0%, #3a3749 50%, #1e1d27 100%)",
-      "linear-gradient(135deg, #1f202b 0%, #2d2e3d 50%, #171821 100%)",
-      "linear-gradient(135deg, #2a2838 0%, #3e3a52 50%, #1d1c26 100%)",
-      "linear-gradient(135deg, #22212d 0%, #333142 50%, #191822 100%)",
-      "linear-gradient(135deg, #282635 0%, #3b384d 50%, #1b1a24 100%)",
-    ];
+  background: ${({ $gradientIndex, theme }) => {
+    const gradients = Object.values(theme.gradients);
     return gradients[$gradientIndex % gradients.length];
   }};
 
-  /* Geometric tech pattern lines */
   &::before {
     content: "";
     position: absolute;
     inset: 0;
     opacity: 0.15;
-    background-image: radial-gradient(rgba(252, 219, 116, 0.8) 1px, transparent 1px);
-    background-size: 16px 16px;
+    background-image: radial-gradient(
+      ${({ theme }) => theme.colors.yellow80} 1px,
+      ${({ theme }) => theme.colors.transparent} 1px
+    );
+    background-size: 1rem 1rem;
     transition: transform 400ms ease;
   }
 
@@ -95,8 +90,12 @@ export const CardCover = styled.div<{ $gradientIndex: number }>`
     bottom: 0;
     left: 0;
     right: 0;
-    height: 40px;
-    background: linear-gradient(to top, ${({ theme }) => theme.black}, transparent);
+    height: ${({ theme }) => theme.spacing["2xl"]};
+    background: linear-gradient(
+      to top,
+      ${({ theme }) => theme.colors.black},
+      transparent
+    );
   }
 
   ${Card}:hover &::before {
@@ -106,73 +105,74 @@ export const CardCover = styled.div<{ $gradientIndex: number }>`
 
 export const CoverBadge = styled.div`
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(36, 34, 45, 0.7);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  top: ${({ theme }) => theme.spacing.md};
+  right: ${({ theme }) => theme.spacing.md};
+  width: ${({ theme }) => theme.sizes.badge};
+  height: ${({ theme }) => theme.sizes.badge};
+  border-radius: ${({ theme }) => theme.radii.circle};
+  background: ${({ theme }) => theme.colors.black70};
+  backdrop-filter: blur(0.5rem);
+  border: 1px solid ${({ theme }) => theme.colors.white15};
   display: grid;
   place-items: center;
-  color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.colors.yellow};
   transition:
     transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
     background-color 240ms ease;
 
   ${Card}:hover & {
-    transform: translate(2px, -2px) rotate(45deg);
-    background: ${({ theme }) => theme.yellow};
-    color: ${({ theme }) => theme.black};
+    transform: translate(0.125rem, -0.125rem) rotate(45deg);
+    background: ${({ theme }) => theme.colors.yellow};
+    color: ${({ theme }) => theme.colors.black};
   }
 `;
 
 export const CardBody = styled.div`
-  padding: 0 24px 24px;
+  padding: 0 ${({ theme }) => theme.spacing["2xl"]}
+    ${({ theme }) => theme.spacing["2xl"]};
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 10px;
+  gap: ${({ theme }) => theme.gaps.lg};
   justify-content: flex-end;
 `;
 
 export const Tag = styled.span`
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.eyebrow};
   text-transform: uppercase;
-  color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.colors.yellow};
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: ${({ theme }) => theme.gaps.xs};
 
   &::before {
     content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: ${({ theme }) => theme.yellow};
+    width: ${({ theme }) => theme.spacing["2xs"]};
+    height: ${({ theme }) => theme.spacing["2xs"]};
+    border-radius: ${({ theme }) => theme.radii.circle};
+    background: ${({ theme }) => theme.colors.yellow};
   }
 `;
 
 export const Title = styled.h3`
-  font-size: 20px;
-  font-weight: 800;
+  font-size: ${({ theme }) => theme.fontSizes["2xl"]};
+  font-weight: ${({ theme }) => theme.fontWeights.extrabold};
   text-transform: uppercase;
-  letter-spacing: -0.01em;
-  color: ${({ theme }) => theme.white};
-  line-height: 1.2;
-  transition: color 200ms ease;
+  letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
+  color: ${({ theme }) => theme.colors.white};
+  line-height: ${({ theme }) => theme.lineHeights.body};
+  transition: color ${({ theme }) => theme.motion.base};
 
   ${Card}:hover & {
-    color: ${({ theme }) => theme.yellow};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 `;
 
 export const Meta = styled.p`
-  font-size: 13px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.white};
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  line-height: ${({ theme }) => theme.lineHeights.body};
+  color: ${({ theme }) => theme.colors.white};
   opacity: 0.78;
 `;

@@ -1,6 +1,13 @@
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { type MouseEvent, useRef } from "react";
 import styled from "styled-components";
+import { theme } from "@/styles/themes";
 
 type Point = {
   x: number;
@@ -15,7 +22,7 @@ type HoneycombAvatarProps = {
 const VIEWBOX_WIDTH = 600;
 const VIEWBOX_HEIGHT = 700;
 const HEX_RADIUS = 72;
-const LINE_COLOR = "#FCDB74";
+const LINE_COLOR = theme.colors.yellow;
 
 // 2 - 3 - 4 - 3 - 2 regular honeycomb formation
 const cells: Point[] = [
@@ -50,26 +57,26 @@ function getHexagonPoints({ x, y }: Point, radius = HEX_RADIUS) {
 }
 
 const Frame = styled(motion.div)`
-  width: 480px;
+  width: 30rem;
   aspect-ratio: 600 / 700;
   margin-inline: auto;
   isolation: isolate;
-  perspective: 1000px;
+  perspective: 62.5rem;
 
-  @media (max-width: 1199px) {
-    width: 420px;
+  @media (max-width: 74.94rem) {
+    width: 26.25rem;
   }
 
-  @media (max-width: 1023px) {
-    width: 340px;
+  @media (max-width: 63.94rem) {
+    width: 21.25rem;
   }
 
-  @media (max-width: 767px) {
-    width: 270px;
+  @media (max-width: 47.94rem) {
+    width: 16.88rem;
   }
 
-  @media (max-width: 480px) {
-    width: 210px;
+  @media (max-width: 30rem) {
+    width: 13.12rem;
   }
 `;
 
@@ -81,7 +88,7 @@ const Svg = styled.svg`
 
   .background-cell,
   .photo-cell {
-    fill: ${({ theme }) => theme.yellow};
+    fill: ${({ theme }) => theme.colors.yellow};
   }
 
   .honeycomb-line {
@@ -96,13 +103,13 @@ const Svg = styled.svg`
     mix-blend-mode: darken;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 47.94rem) {
     .honeycomb-line {
       stroke-width: 1.6;
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 30rem) {
     .honeycomb-line {
       stroke-width: 1.3;
     }
@@ -165,31 +172,53 @@ export const HoneycombAvatar = ({ src, alt }: HoneycombAvatarProps) => {
         }}
         style={{ width: "100%", height: "100%" }}
       >
-        <Svg viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`} role="img" aria-label={alt}>
+        <Svg
+          viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
+          role="img"
+          aria-label={alt}
+        >
           <defs>
             <clipPath id="avatar-honeycomb-clip">
               {photoCells.map((cell, index) => (
-                <polygon key={`photo-${index}`} points={getHexagonPoints(cell)} />
+                <polygon
+                  key={`photo-${index}`}
+                  points={getHexagonPoints(cell)}
+                />
               ))}
             </clipPath>
           </defs>
 
-          {/* Background cells filled with theme.yellow */}
           <g>
             {cells.map((cell, index) => (
-              <polygon className="background-cell" key={`background-${index}`} points={getHexagonPoints(cell)} />
+              <polygon
+                className="background-cell"
+                key={`background-${index}`}
+                points={getHexagonPoints(cell)}
+              />
             ))}
           </g>
 
           <g>
             {photoCells.map((cell, index) => (
-              <polygon className="photo-cell" key={`photo-cell-${index}`} points={getHexagonPoints(cell)} />
+              <polygon
+                className="photo-cell"
+                key={`photo-cell-${index}`}
+                points={getHexagonPoints(cell)}
+              />
             ))}
           </g>
 
           {/* Photo clipped to the entire honeycomb silhouette, using mix-blend-mode: darken */}
           <g clipPath="url(#avatar-honeycomb-clip)">
-            <image className="avatar-image" href={src} x="35" y="0" width="530" height="620" preserveAspectRatio="xMidYMid slice" />
+            <image
+              className="avatar-image"
+              href={src}
+              x="35"
+              y="0"
+              width="530"
+              height="620"
+              preserveAspectRatio="xMidYMid slice"
+            />
           </g>
 
           {/* Honeycomb grid overlay lines */}

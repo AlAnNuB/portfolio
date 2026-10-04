@@ -5,47 +5,49 @@ export const Bar = styled.header<{ $scrolled: boolean }>`
   position: fixed;
   top: 0;
   z-index: 50;
-  height: 60px;
+  height: 3.75rem;
   width: 100%;
-  background: ${({ $scrolled, theme }) => ($scrolled ? "rgba(252, 219, 116, 0.92)" : theme.yellow)};
-  backdrop-filter: ${({ $scrolled }) => ($scrolled ? "blur(12px)" : "none")};
-  box-shadow: ${({ $scrolled }) => ($scrolled ? "0 4px 20px rgba(36, 34, 45, 0.12)" : "none")};
+  background: ${({ $scrolled, theme }) =>
+    $scrolled ? theme.colors.yellow92 : theme.colors.yellow};
+  backdrop-filter: ${({ $scrolled }) => ($scrolled ? "blur(0.75rem)" : "none")};
+  box-shadow: ${({ $scrolled, theme }) =>
+    $scrolled ? theme.shadows.header : "none"};
   transition:
-    background-color 300ms ease,
-    box-shadow 300ms ease,
-    backdrop-filter 300ms ease;
+    background-color ${({ theme }) => theme.motion.slow},
+    box-shadow ${({ theme }) => theme.motion.slow},
+    backdrop-filter ${({ theme }) => theme.motion.slow};
 `;
 
 export const Shell = styled.div`
-  max-width: 1312px;
+  max-width: 82rem;
   margin: 0 auto;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 0 24px;
+  gap: ${({ theme }) => theme.gaps["4xl"]};
+  padding: 0 1.5rem;
 
-  @media (max-width: 768px) {
-    padding: 0 16px;
+  @media (max-width: 48rem) {
+    padding: 0 1rem;
   }
 `;
 
 export const Brand = styled(motion.div)`
-  height: 36px;
+  height: 2.25rem;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 18px;
-  background: ${({ theme }) => theme.black};
-  border-radius: ${({ theme }) => theme.radiusMd};
-  color: ${({ theme }) => theme.white};
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  gap: ${({ theme }) => theme.gaps.xl};
+  padding: 0 1.125rem;
+  background: ${({ theme }) => theme.colors.black};
+  border-radius: ${({ theme }) => theme.radii.md};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  font-weight: ${({ theme }) => theme.fontWeights.extrabold};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.wide};
   text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(36, 34, 45, 0.25);
-  transition: transform 200ms ease;
+  box-shadow: 0 0.25rem 0.75rem ${({ theme }) => theme.colors.black25};
+  transition: transform ${({ theme }) => theme.motion.base};
 
   &:hover {
     transform: scale(1.03);
@@ -56,16 +58,16 @@ export const BrandLink = styled.a`
   color: inherit;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: ${({ theme }) => theme.gaps.md};
 `;
 
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: ${({ theme }) => theme.gaps.sm};
   position: relative;
 
-  @media (max-width: 900px) {
+  @media (max-width: 56.25rem) {
     display: none;
   }
 `;
@@ -74,12 +76,12 @@ export const NavLink = styled.a<{ $active?: boolean }>`
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 8px 12px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  padding: 0.5rem 0.75rem;
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.nav};
   text-transform: uppercase;
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.colors.black};
   opacity: ${({ $active }) => ($active ? 1 : 0.75)};
   transition:
     opacity 180ms ease,
@@ -89,18 +91,18 @@ export const NavLink = styled.a<{ $active?: boolean }>`
     opacity: 1;
   }
 
-  ${({ $active }) =>
+  ${({ $active, theme }) =>
     $active &&
     `
     &::after {
       content: "";
       position: absolute;
-      bottom: 2px;
-      left: 12px;
-      right: 12px;
-      height: 2px;
-      background: #24222D;
-      border-radius: 2px;
+      bottom: 0.125rem;
+      left: 0.75rem;
+      right: 0.75rem;
+      height: 0.125rem;
+      background: ${theme.colors.black};
+      border-radius: ${theme.radii.hairline};
     }
   `}
 `;
@@ -108,48 +110,48 @@ export const NavLink = styled.a<{ $active?: boolean }>`
 export const Icons = styled.div`
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: ${({ theme }) => theme.gaps.sm};
 `;
 
 export const IconLink = styled(motion.a)`
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   display: grid;
   place-items: center;
-  color: ${({ theme }) => theme.black};
-  border-radius: 50%;
-  background: rgba(36, 34, 45, 0.06);
+  color: ${({ theme }) => theme.colors.black};
+  border-radius: ${({ theme }) => theme.radii.circle};
+  background: ${({ theme }) => theme.colors.black06};
   transition:
-    background-color 200ms ease,
-    color 200ms ease;
+    background-color ${({ theme }) => theme.motion.base},
+    color ${({ theme }) => theme.motion.base};
 
   &:hover {
-    background: ${({ theme }) => theme.black};
-    color: ${({ theme }) => theme.yellow};
+    background: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 `;
 
 export const MenuButton = styled.button`
   display: none;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border: 0;
   background: transparent;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
   place-items: center;
 
-  @media (max-width: 900px) {
+  @media (max-width: 56.25rem) {
     display: grid;
   }
 `;
 
 export const Overlay = styled.button<{ $open: boolean }>`
   position: fixed;
-  inset: 60px 0 0;
+  inset: 3.75rem 0 0;
   border: 0;
-  background: rgba(36, 34, 45, 0.45);
-  backdrop-filter: blur(4px);
+  background: ${({ theme }) => theme.colors.black45};
+  backdrop-filter: blur(0.25rem);
   cursor: pointer;
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
@@ -161,37 +163,38 @@ export const Overlay = styled.button<{ $open: boolean }>`
 export const MobilePanel = styled.nav<{ $open: boolean }>`
   display: flex;
   position: fixed;
-  top: 60px;
+  top: 3.75rem;
   right: 0;
-  width: min(85vw, 320px);
-  height: calc(100dvh - 60px);
+  width: min(85vw, 20rem);
+  height: calc(100dvh - 3.75rem);
   flex-direction: column;
-  gap: 12px;
-  padding: 32px 24px;
-  background: ${({ theme }) => theme.black};
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  gap: ${({ theme }) => theme.gaps.xl};
+  padding: 2rem 1.5rem;
+  background: ${({ theme }) => theme.colors.black};
+  border-left: 1px solid ${({ theme }) => theme.colors.white08};
   z-index: 51;
   opacity: ${({ $open }) => ($open ? 1 : 0)};
   visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
   pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
-  transform: ${({ $open }) => ($open ? "translateX(0)" : "translateX(20px)")};
+  transform: ${({ $open }) =>
+    $open ? "translateX(0)" : "translateX(1.25rem)"};
   transition:
     opacity 240ms ease-out,
     transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
     visibility 240ms ease-out;
 
   ${NavLink} {
-    color: ${({ theme }) => theme.white};
-    font-size: 13px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: ${({ theme }) => theme.colors.white};
+    font-size: ${({ theme }) => theme.fontSizes.base};
+    padding: 0.625rem 0;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.white06};
 
     &::after {
-      background: ${({ theme }) => theme.yellow};
+      background: ${({ theme }) => theme.colors.yellow};
       bottom: 0;
       left: 0;
       right: auto;
-      width: 24px;
+      width: 1.5rem;
     }
   }
 `;

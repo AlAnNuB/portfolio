@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Section = styled.section`
-  background: ${({ theme }) => theme.black};
-  padding: 100px 32px;
+  background: ${({ theme }) => theme.colors.black};
+  padding: 6.25rem 2rem;
   position: relative;
   overflow: hidden;
 
-  @media (max-width: 768px) {
-    padding: 64px 20px;
+  @media (max-width: 48rem) {
+    padding: 4rem 1.25rem;
   }
 `;
 
@@ -17,122 +17,126 @@ export const Inner = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
+  gap: ${({ theme }) => theme.gaps["8xl"]};
   align-items: center;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 64rem) {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: ${({ theme }) => theme.gaps["7xl"]};
   }
 `;
 
 export const TextColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: ${({ theme }) => theme.gaps["3xl"]};
 `;
 
 export const Lead = styled.h2`
-  font-size: clamp(26px, 3.8vw, 44px);
-  font-weight: 900;
-  line-height: 1.18;
+  font-size: clamp(
+    ${({ theme }) => theme.fontSizes.displaySm},
+    3.8vw,
+    ${({ theme }) => theme.fontSizes.sectionMax}
+  );
+  font-weight: ${({ theme }) => theme.fontWeights.black};
+  line-height: ${({ theme }) => theme.lineHeights.heading};
   text-transform: uppercase;
-  color: ${({ theme }) => theme.white};
-  letter-spacing: -0.01em;
+  color: ${({ theme }) => theme.colors.white};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.tight};
   text-wrap: balance;
 `;
 
 export const Highlight = styled.span`
-  color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.colors.yellow};
 `;
 
 export const List = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 8px;
+  gap: ${({ theme }) => theme.gaps["2xl"]};
+  margin-top: 0.5rem;
 `;
 
 export const ListItem = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 16px 20px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  gap: ${({ theme }) => theme.gaps.sm};
+  padding: 1rem 1.25rem;
+  border-radius: ${({ theme }) => theme.radii.panel};
+  background: ${({ theme }) => theme.colors.white03};
+  border: 1px solid ${({ theme }) => theme.colors.white06};
   transition:
-    transform 200ms ease,
-    background-color 200ms ease,
-    border-color 200ms ease;
+    transform ${({ theme }) => theme.motion.base},
+    background-color ${({ theme }) => theme.motion.base},
+    border-color ${({ theme }) => theme.motion.base};
 
   &:hover {
-    transform: translateX(6px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(252, 219, 116, 0.3);
+    transform: translateX(0.375rem);
+    background: ${({ theme }) => theme.colors.white06};
+    border-color: ${({ theme }) => theme.colors.yellow30};
   }
 
   strong {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    letter-spacing: ${({ theme }) => theme.letterSpacings.label};
     text-transform: uppercase;
-    color: ${({ theme }) => theme.yellow};
+    color: ${({ theme }) => theme.colors.yellow};
   }
 
   span {
-    font-size: 14px;
-    line-height: 1.6;
-    color: ${({ theme }) => theme.white};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    line-height: ${({ theme }) => theme.lineHeights.body};
+    color: ${({ theme }) => theme.colors.white};
     opacity: 0.84;
-    font-weight: 400;
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
   }
 `;
 
 export const HoneycombStats = styled.div`
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 27.5rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: ${({ theme }) => theme.gaps["2xl"]};
 `;
 
 export const StatsTopRow = styled.div`
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: ${({ theme }) => theme.gaps["2xl"]};
   width: 100%;
 
-  @media (max-width: 480px) {
-    gap: 8px;
+  @media (max-width: 30rem) {
+    gap: ${({ theme }) => theme.gaps.md};
   }
 `;
 
 export const StatsBottomRow = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: -24px;
+  margin-top: -1.5rem;
   width: 100%;
 
-  @media (max-width: 480px) {
-    margin-top: -16px;
+  @media (max-width: 30rem) {
+    margin-top: -1rem;
   }
 `;
 
 export const HexCard = styled(motion.div)`
   position: relative;
-  width: 160px;
-  height: 184px;
+  width: 10rem;
+  height: 11.5rem;
   display: grid;
   place-items: center;
   cursor: default;
 
-  @media (max-width: 480px) {
-    width: 136px;
-    height: 156px;
+  @media (max-width: 30rem) {
+    width: 8.5rem;
+    height: 9.75rem;
   }
 
   svg {
@@ -140,7 +144,9 @@ export const HexCard = styled(motion.div)`
     inset: 0;
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+    filter: drop-shadow(
+      0 0.75rem 1.5rem ${({ theme }) => theme.colors.black35}
+    );
     transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -153,7 +159,7 @@ export const HexContent = styled.div`
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 12px;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -161,20 +167,24 @@ export const HexContent = styled.div`
 `;
 
 export const StatValue = styled.p`
-  font-size: clamp(32px, 3.5vw, 42px);
-  font-weight: 900;
-  color: ${({ theme }) => theme.black};
+  font-size: clamp(
+    ${({ theme }) => theme.fontSizes.statMin},
+    3.5vw,
+    ${({ theme }) => theme.fontSizes.statMax}
+  );
+  font-weight: ${({ theme }) => theme.fontWeights.black};
+  color: ${({ theme }) => theme.colors.black};
   font-variant-numeric: tabular-nums;
-  line-height: 1;
+  line-height: ${({ theme }) => theme.lineHeights.normal};
 `;
 
 export const StatLabel = styled.p`
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme }) => theme.fontWeights.extrabold};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.uppercase};
   text-transform: uppercase;
-  color: ${({ theme }) => theme.black};
-  max-width: 110px;
-  margin: 6px auto 0;
-  line-height: 1.35;
+  color: ${({ theme }) => theme.colors.black};
+  max-width: 6.875rem;
+  margin: 0.375rem auto 0;
+  line-height: ${({ theme }) => theme.lineHeights.role};
 `;

@@ -2,6 +2,7 @@ import { Reveal } from "@/components/reveal";
 import { AnimatedCounter } from "@/components/reveal/counter";
 import { SectionHeader } from "@/components/sectionHeader";
 import { services } from "@/data/content";
+import { theme } from "@/styles/themes";
 import { HexCard, HexContent, Highlight, HoneycombStats, Inner, Lead, List, ListItem, Section, StatLabel, StatsBottomRow, StatsTopRow, StatValue, TextColumn } from "./styles";
 
 const HEX_POINTS = "80,0 160,46.2 160,138.6 80,184.8 0,138.6 0,46.2";
@@ -43,7 +44,7 @@ export const ServicesSection = () => {
                 }}
               >
                 <svg viewBox="0 0 160 185">
-                  <polygon points={HEX_POINTS} fill="#FCDB74" stroke="#bea34c" strokeWidth="1.5" />
+                  <polygon points={HEX_POINTS} fill={theme.colors.yellow} stroke={theme.colors.yellowMuted} strokeWidth="1.5" />
                 </svg>
                 <HexContent>
                   <StatValue>
@@ -64,7 +65,7 @@ export const ServicesSection = () => {
                 }}
               >
                 <svg viewBox="0 0 160 185">
-                  <polygon points={HEX_POINTS} fill="#FCDB74" stroke="#bea34c" strokeWidth="1.5" />
+                  <polygon points={HEX_POINTS} fill={theme.colors.yellow} stroke={theme.colors.yellowMuted} strokeWidth="1.5" />
                 </svg>
                 <HexContent>
                   <StatValue>
@@ -87,7 +88,7 @@ export const ServicesSection = () => {
                 }}
               >
                 <svg viewBox="0 0 160 185">
-                  <polygon points={HEX_POINTS} fill="#FCDB74" stroke="#bea34c" strokeWidth="1.5" />
+                  <polygon points={HEX_POINTS} fill={theme.colors.yellow} stroke={theme.colors.yellowMuted} strokeWidth="1.5" />
                 </svg>
                 <HexContent>
                   <StatValue>

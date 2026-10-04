@@ -1,16 +1,5 @@
-import "styled-components";
+import type { Theme } from "@/styles/themes";
 
 declare module "styled-components" {
-  export interface DefaultTheme {
-    white: string;
-    black: string;
-    yellow: string;
-    purple: string;
-    color: string;
-    primaryColor: string;
-    selectionColor: string;
-    radiusXs: string;
-    radiusSm: string;
-    radiusMd: string;
-  }
+  interface DefaultTheme extends Theme {}
 }

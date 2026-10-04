@@ -28,9 +28,9 @@ export const Container = styled.h1`
   display: flex;
   user-select: none;
   flex-wrap: wrap;
-  font-size: clamp(2.5rem, 4vw, 4rem);
-  font-weight: var(--font-bold);
-  line-height: 1;
+  font-size: clamp(${({ theme }) => theme.fontSizes.display}, 4vw, ${({ theme }) => theme.fontSizes.displayXl});
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  line-height: ${({ theme }) => theme.lineHeights.normal};
   background-color: transparent;
 `;
 
@@ -45,11 +45,11 @@ export const Phrases = styled.div`
 
 export const Letter = styled.span<{ $themeProp: "default" | "primary" }>`
   background-color: transparent;
-  color: ${({ theme, $themeProp }) => ($themeProp === "default" ? theme.color : theme.primaryColor)};
+  color: ${({ theme, $themeProp }) => ($themeProp === "default" ? theme.colors.black : theme.colors.yellow)};
   transition: all 0.3s ease-out;
 
   &:hover {
-    color: ${({ theme, $themeProp }) => ($themeProp === "default" ? theme.primaryColor : theme.color)};
+    color: ${({ theme, $themeProp }) => ($themeProp === "default" ? theme.colors.yellow : theme.colors.black)};
     animation: 1s linear ${rubberBand};
   }
 `;

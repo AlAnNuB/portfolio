@@ -12,7 +12,7 @@ type ProgressBarProps = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: ${({ theme }) => theme.gaps.md};
   width: 100%;
 `;
 
@@ -23,33 +23,33 @@ const InfoRow = styled.div`
 `;
 
 const Label = styled.span`
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.nav};
   text-transform: uppercase;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 const Value = styled.span`
-  font-size: 12px;
-  font-weight: 800;
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.extrabold};
   font-variant-numeric: tabular-nums;
-  color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.colors.yellow};
 `;
 
 const Track = styled.div`
   width: 100%;
-  height: 6px;
-  background: rgba(250, 250, 250, 0.12);
-  border-radius: 999px;
+  height: 0.375rem;
+  background: ${({ theme }) => theme.colors.white12};
+  border-radius: ${({ theme }) => theme.radii.control};
   overflow: hidden;
   position: relative;
 `;
 
 const Bar = styled(motion.div)`
   height: 100%;
-  background: ${({ theme }) => theme.yellow};
-  border-radius: 999px;
+  background: ${({ theme }) => theme.colors.yellow};
+  border-radius: ${({ theme }) => theme.radii.control};
   position: relative;
 
   &::after {
@@ -58,9 +58,13 @@ const Bar = styled(motion.div)`
     right: 0;
     top: 0;
     bottom: 0;
-    width: 16px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45));
-    border-radius: 999px;
+    width: 1rem;
+    background: linear-gradient(
+      90deg,
+      ${({ theme }) => theme.colors.transparent},
+      ${({ theme }) => theme.colors.white45}
+    );
+    border-radius: ${({ theme }) => theme.radii.control};
   }
 `;
 

@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/reveal";
 import { SectionHeader } from "@/components/sectionHeader";
 import { experiences } from "@/data/content";
+import { theme } from "@/styles/themes";
 import { Bullet, Card, Entry, EntryContent, EntryList, Grid, Inner, Kind, KindHeader, Meta, Period, Section, Title } from "./styles";
 
 const groups = ["Educação", "Experiência"] as const;
@@ -15,7 +16,7 @@ export const ExperienceSection = () => {
             <Reveal key={group} direction={groupIndex === 0 ? "left" : "right"} delay={0.15 + groupIndex * 0.15}>
               <Card>
                 <KindHeader>
-                  <svg width="12" height="14" viewBox="0 0 12 14" fill="#FCDB74">
+                  <svg width="12" height="14" viewBox="0 0 12 14" fill={theme.colors.yellow}>
                     <polygon points="6,0 12,3.5 12,10.5 6,14 0,10.5 0,3.5" />
                   </svg>
                   <Kind>{group}</Kind>

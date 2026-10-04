@@ -31,13 +31,13 @@ const sharedStyles = css<{ $variant?: "dark" | "light" | "outline" }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: ${({ theme }) => theme.gaps.md};
   padding: 0.25rem;
   padding-right: 1.25rem;
-  border-radius: ${({ theme }) => theme.radiusMd};
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  border-radius: ${({ theme }) => theme.radii.md};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  letter-spacing: ${({ theme }) => theme.letterSpacings.nav};
   text-transform: uppercase;
   cursor: pointer;
   border: 1px solid transparent;
@@ -47,21 +47,21 @@ const sharedStyles = css<{ $variant?: "dark" | "light" | "outline" }>`
   transition:
     transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 200ms ease,
-    color 200ms ease,
-    border-color 200ms ease;
+    background-color ${({ theme }) => theme.motion.base},
+    color ${({ theme }) => theme.motion.base},
+    border-color ${({ theme }) => theme.motion.base};
 
   ${({ $variant = "dark", theme }) => {
     if ($variant === "light") {
       return css`
-        background: ${theme.yellow};
-        color: ${theme.black};
-        box-shadow: 0 4px 14px rgba(252, 219, 116, 0.25);
+        background: ${theme.colors.yellow};
+        color: ${theme.colors.black};
+        box-shadow: 0 0.25rem 0.875rem ${theme.colors.yellow25};
 
         &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(252, 219, 116, 0.38);
-          background: #ffe38f;
+          transform: translateY(-0.125rem);
+          box-shadow: 0 0.5rem 1.25rem ${theme.colors.yellow38};
+          background: ${theme.colors.yellowBright};
         }
 
         &:active {
@@ -73,14 +73,14 @@ const sharedStyles = css<{ $variant?: "dark" | "light" | "outline" }>`
     if ($variant === "outline") {
       return css`
         background: transparent;
-        color: ${theme.white};
-        border-color: rgba(250, 250, 250, 0.25);
+        color: ${theme.colors.white};
+        border-color: ${theme.colors.white25};
 
         &:hover {
-          transform: translateY(-2px);
-          border-color: ${theme.yellow};
-          color: ${theme.yellow};
-          background: rgba(252, 219, 116, 0.08);
+          transform: translateY(-0.125rem);
+          border-color: ${theme.colors.yellow};
+          color: ${theme.colors.yellow};
+          background: ${theme.colors.yellow08};
         }
 
         &:active {
@@ -89,16 +89,15 @@ const sharedStyles = css<{ $variant?: "dark" | "light" | "outline" }>`
       `;
     }
 
-    // Default dark
     return css`
-      background: ${theme.black};
-      color: ${theme.white};
-      box-shadow: 0 4px 16px rgba(36, 34, 45, 0.2);
+      background: ${theme.colors.black};
+      color: ${theme.colors.white};
+      box-shadow: 0 0.25rem 1rem ${theme.colors.black20};
 
       &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(36, 34, 45, 0.32);
-        background: #2e2c38;
+        transform: translateY(-0.125rem);
+        box-shadow: 0 0.5rem 1.5rem ${theme.colors.black32};
+        background: ${theme.colors.inkSoft};
       }
 
       &:active {
@@ -113,27 +112,26 @@ const sharedStyles = css<{ $variant?: "dark" | "light" | "outline" }>`
     justify-content: center;
     width: 2.063rem;
     height: 2.063rem;
-    border-radius: 50%;
+    border-radius: ${({ theme }) => theme.radii.circle};
     transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
 
     ${({ $variant, theme }) => {
       if ($variant === "light") {
         return css`
-          background: ${theme.black};
-          color: ${theme.yellow};
+          background: ${theme.colors.black};
+          color: ${theme.colors.yellow};
         `;
       }
       if ($variant === "outline") {
         return css`
-          background: rgba(255, 255, 255, 0.15);
+          background: ${theme.colors.white15};
           color: currentColor;
         `;
       }
-      // default dark variant
       return css`
-        background: ${theme.white};
-        color: ${theme.black};
+        background: ${theme.colors.white};
+        color: ${theme.colors.black};
       `;
     }}
 
@@ -146,11 +144,11 @@ const sharedStyles = css<{ $variant?: "dark" | "light" | "outline" }>`
   }
 
   &:hover .arrow-icon {
-    transform: translateX(4px);
+    transform: translateX(0.25rem);
   }
 
-  @media (max-width: 1023px) and (min-width: 701px) {
-    font-size: 0.688rem;
+  @media (max-width: 63.94rem) and (min-width: 43.81rem) {
+    font-size: ${({ theme }) => theme.fontSizes.buttonCompact};
   }
 `;
 
