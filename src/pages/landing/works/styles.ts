@@ -117,13 +117,26 @@ export const CoverBadge = styled.div`
   place-items: center;
   color: ${({ theme }) => theme.colors.yellow};
   transition:
-    transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform ${({ theme }) => theme.motion.slow},
     background-color 240ms ease;
 
-  ${Card}:hover & {
-    transform: translate(0.125rem, -0.125rem) rotate(45deg);
+  ${Card}:hover &,
+  ${Card}:focus-visible & {
+    transform: translate(0.125rem, -0.125rem) scale(1.08);
     background: ${({ theme }) => theme.colors.yellow};
     color: ${({ theme }) => theme.colors.black};
+  }
+`;
+
+export const CoverIcon = styled.svg`
+  display: block;
+  transition: transform ${({ theme }) => theme.motion.slow};
+  transform-box: fill-box;
+  transform-origin: center;
+
+  ${Card}:hover &,
+  ${Card}:focus-visible & {
+    transform: rotate(45deg);
   }
 `;
 

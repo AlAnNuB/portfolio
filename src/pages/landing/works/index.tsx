@@ -3,7 +3,7 @@ import { Reveal } from "@/components/reveal";
 import { TiltCard } from "@/components/reveal/tiltCard";
 import { SectionHeader } from "@/components/sectionHeader";
 import { works } from "@/data/content";
-import { Card, CardBody, CardCover, CoverBadge, Grid, Inner, Meta, Section, Tag, Title } from "./styles";
+import { Card, CardBody, CardCover, CoverBadge, CoverIcon, Grid, Inner, Meta, Section, Tag, Title } from "./styles";
 
 export const WorksSection = () => {
   return (
@@ -17,7 +17,7 @@ export const WorksSection = () => {
                 <Card href={work.href} target="_blank" rel="noopener noreferrer" aria-label={`Ver projeto ${work.title}`}>
                   <CardCover $gradientIndex={index}>
                     <CoverBadge>
-                      <ArrowUpRightIcon size={16} weight="bold" />
+                      <CoverIcon as={ArrowUpRightIcon} size={16} weight="bold" />
                     </CoverBadge>
                   </CardCover>
                   <CardBody>
